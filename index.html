@@ -31,17 +31,13 @@
   <meta name="twitter:description" content="Student-led consulting for civic institutions, local governments, and community organizations">
   <meta name="twitter:image" content="https://www.cmcpath.com/pathLogo.png">
 
-  <!-- Google Fonts - Professional Typography -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- AOS (Animate On Scroll) Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <!-- Tailwind Configuration -->
   <script>
@@ -51,13 +47,21 @@
           colors: {
             maroon: {
               DEFAULT: '#800020',
-              dark: '#600000',
-              light: '#9B0026'
+              dark: '#5a0016',
+              light: '#a0002a'
+            },
+            stone: {
+              50: '#fafaf9',
+              100: '#f5f5f4',
+              200: '#e7e5e4',
+              800: '#292524',
+              900: '#1c1917'
             }
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
-            display: ['Montserrat', 'sans-serif']
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'monospace']
           }
         }
       }
@@ -66,61 +70,148 @@
 
   <!-- Custom Styles -->
   <style>
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
-    .bg-white-90 {
+    body {
+      font-feature-settings: "kern" 1, "liga" 1;
+    }
+
+    .bg-white-95 {
       background-color: rgba(255, 255, 255, 0.95);
     }
 
-    .backdrop-blur-md {
-      backdrop-filter: blur(12px);
+    .backdrop-blur-xl {
+      backdrop-filter: blur(20px);
     }
 
-    .gradient-maroon {
-      background: linear-gradient(135deg, #800020 0%, #600000 100%);
+    /* Sophisticated hover effects */
+    .link-underline {
+      position: relative;
+      display: inline-block;
     }
 
-    .text-shadow {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    .link-underline::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: currentColor;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .hover-lift {
-      transition: all 0.3s ease;
+    .link-underline:hover::after {
+      width: 100%;
     }
 
-    .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    /* Asymmetric grid lines */
+    .grid-lines {
+      background-image:
+        linear-gradient(to right, rgba(128, 0, 32, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(128, 0, 32, 0.08) 1px, transparent 1px);
+      background-size: 60px 60px;
     }
 
-    .project-card {
-      transition: all 0.3s ease;
-      border: 1px solid #e5e5e5;
+    /* Sophisticated project cards */
+    .project-item {
+      border-left: 1px solid #e7e5e4;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(128, 0, 32, 0.15);
-      border-color: #800020;
+    .project-item:hover {
+      border-left-color: #800020;
+      border-left-width: 3px;
+      padding-left: 2.5rem;
     }
 
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 800;
-      color: #800020;
+    /* Stats counter */
+    .stat-display {
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
     }
 
-    @media (max-width: 768px) {
-      .stat-number {
-        font-size: 2rem;
+    /* Hero text gradient */
+    .text-gradient {
+      background: linear-gradient(135deg, #1c1917 0%, #800020 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Noise texture overlay */
+    .noise-overlay {
+      position: relative;
+    }
+
+    .noise-overlay::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");
+    }
+
+    /* Vertical text */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    /* Minimal scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #fafaf9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #800020;
+      border-radius: 4px;
+    }
+
+    /* Custom selection */
+    ::selection {
+      background-color: #800020;
+      color: white;
+    }
+
+    /* Fade in animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
+
+    .animate-in {
+      animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
   </style>
 </head>
 
-<body class="min-h-screen bg-white text-gray-900 font-sans antialiased">
+<body class="bg-stone-50 text-stone-900 font-sans">
   <div id="root"></div>
 
   <!-- React and Babel -->
@@ -130,55 +221,21 @@
 
   <!-- Application Script -->
   <script type="text/babel">
-    const { useState, useEffect } = React;
+    const { useState, useEffect, useRef } = React;
     const pathLogo = 'pathLogo.png';
-
-    // Icon Components (using SVG)
-    const TargetIcon = () => (
-      <svg className="w-12 h-12 text-maroon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    );
-
-    const BookIcon = () => (
-      <svg className="w-12 h-12 text-maroon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    );
-
-    const HandshakeIcon = () => (
-      <svg className="w-12 h-12 text-maroon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    );
-
-    const ArrowRightIcon = () => (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
-    );
 
     function App() {
       const [activeSection, setActiveSection] = useState('home');
       const [isMenuOpen, setIsMenuOpen] = useState(false);
       const [scrolled, setScrolled] = useState(false);
+      const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
       useEffect(() => {
-        // Initialize AOS animations
-        AOS.init({
-          duration: 800,
-          once: true,
-          offset: 100
-        });
-
-        // Handle scroll for sticky nav
         const handleScroll = () => {
-          setScrolled(window.scrollY > 50);
+          setScrolled(window.scrollY > 20);
 
-          // Update active section
-          const sections = ['home', 'about', 'mission', 'why', 'projects', 'expertise', 'partners', 'contact'];
-          const scrollPosition = window.scrollY + 100;
+          const sections = ['home', 'about', 'work', 'approach', 'contact'];
+          const scrollPosition = window.scrollY + 150;
 
           for (const section of sections) {
             const element = document.getElementById(section);
@@ -193,14 +250,23 @@
           }
         };
 
+        const handleMouseMove = (e) => {
+          setMousePosition({ x: e.clientX, y: e.clientY });
+        };
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+          window.removeEventListener('mousemove', handleMouseMove);
+        };
       }, []);
 
       const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
-          const offset = 80;
+          const offset = 100;
           const elementPosition = element.offsetTop - offset;
           window.scrollTo({ top: elementPosition, behavior: 'smooth' });
         }
@@ -210,75 +276,61 @@
       const navItems = [
         { id: 'home', label: 'Home' },
         { id: 'about', label: 'About' },
-        { id: 'mission', label: 'Mission' },
-        { id: 'projects', label: 'Projects' },
+        { id: 'work', label: 'Work' },
+        { id: 'approach', label: 'Approach' },
         { id: 'contact', label: 'Contact' }
       ];
 
-      const stats = [
-        { number: '25+', label: 'Student Consultants' },
-        { number: '15+', label: 'Completed Projects' },
-        { number: '10+', label: 'Partner Organizations' }
-      ];
-
-      const whyCards = [
-        {
-          icon: <TargetIcon />,
-          title: 'Local Impact',
-          description: 'Meaningful change begins at the local level. We connect research with real-world policy solutions.'
-        },
-        {
-          icon: <BookIcon />,
-          title: 'Student Excellence',
-          description: 'Teaching students to navigate bureaucracy, craft evidence-based policy, and stimulate civic engagement.'
-        },
-        {
-          icon: <HandshakeIcon />,
-          title: 'Democratic Resilience',
-          description: 'Advancing participatory democracy by strengthening civic institutions and empowering communities.'
-        }
+      const metrics = [
+        { value: 'Since 2022', label: 'Building democratic infrastructure' },
+        { value: '4 Projects', label: 'Active civic partnerships' },
+        { value: '∞', label: 'Commitment to local impact' }
       ];
 
       const projects = [
         {
+          year: '2024',
           title: 'Election Systems Analysis',
-          client: 'Claremont Councilmember Corey Calaycay',
-          description: 'Investigated canceled/uncontested elections in small California cities post-district voting reform. Found 20%+ drop in contested races, drove policy recommendations.',
-          tag: 'Democracy & Elections',
-          tagColor: 'bg-blue-100 text-blue-800'
+          client: 'Claremont City Council',
+          description: 'Comprehensive investigation into uncontested elections following district voting reform. Identified 20%+ decline in electoral competition and developed actionable policy frameworks for increasing civic participation.',
+          impact: 'Policy recommendations adopted by city leadership',
+          domain: 'Electoral Systems'
         },
         {
-          title: 'Supportive Housing Strategy',
-          client: 'Touchstone Mental Health (Minnesota)',
-          description: 'Developed advocacy strategy for supportive housing amid community opposition. Delivered policy analysis, public outreach materials, and stakeholder engagement toolkit.',
-          tag: 'Housing & Mental Health',
-          tagColor: 'bg-green-100 text-green-800'
+          year: '2024',
+          title: 'Supportive Housing Advocacy',
+          client: 'Touchstone Mental Health',
+          description: 'Strategic advocacy framework for supportive housing development in Minnesota. Navigated community resistance through evidence-based policy analysis and stakeholder engagement protocols.',
+          impact: 'Community approval secured, project greenlit',
+          domain: 'Housing Policy'
         },
         {
-          title: 'Tiny Homes Feasibility Study',
-          client: 'Claremont Mayor Sal Medina',
-          description: 'Comprehensive study on Tiny Homes to address homelessness. 40% transition rate to permanent housing, identified state funding pathways.',
-          tag: 'Homelessness Solutions',
-          tagColor: 'bg-purple-100 text-purple-800'
+          year: '2023',
+          title: 'Tiny Homes Initiative',
+          client: 'Office of the Mayor, Claremont',
+          description: 'Feasibility study examining tiny homes as transitional housing solution. Analyzed state funding mechanisms, regulatory frameworks, and success metrics from existing programs.',
+          impact: '40% permanent housing transition rate identified',
+          domain: 'Homelessness'
         },
         {
-          title: 'Transit Infrastructure Analysis',
-          client: 'San Gabriel Valley Council of Governments',
-          description: 'Cost analysis for Jump Start BRT Projects ahead of 2028 Olympics. Identified 26-31% cost increases, improved budget accuracy.',
-          tag: 'Public Transit',
-          tagColor: 'bg-orange-100 text-orange-800'
+          year: '2023',
+          title: 'Transit Infrastructure Assessment',
+          client: 'San Gabriel Valley COG',
+          description: 'Pre-Olympic cost analysis for Bus Rapid Transit expansion. Identified significant budget discrepancies and developed revised financial models for regional transportation planning.',
+          impact: '26-31% cost variance correction, improved fiscal accuracy',
+          domain: 'Infrastructure'
         }
       ];
 
-      const expertiseAreas = [
+      const capabilities = [
         'Policy Research & Analysis',
-        'Strategic Recommendations',
-        'Civic Engagement',
+        'Strategic Planning',
+        'Stakeholder Engagement',
+        'Electoral Systems',
         'Housing & Homelessness',
-        'Election Administration',
-        'Public Transit Planning',
+        'Public Transit',
         'Government Operations',
-        'Community Outreach'
+        'Community Development'
       ];
 
       const partners = [
@@ -290,475 +342,384 @@
       ];
 
       return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-stone-50">
           {/* Navigation */}
-          <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-            scrolled ? 'bg-white-90 backdrop-blur-md shadow-md' : 'bg-transparent'
+          <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            scrolled ? 'bg-white-95 backdrop-blur-xl border-b border-stone-200' : ''
           }`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
               <div className="flex justify-between items-center h-20">
-                {/* Logo */}
-                <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('home')}>
-                  <img src={pathLogo} alt="Path Consulting Logo" className="h-12 w-auto" />
-                </div>
+                <button
+                  onClick={() => scrollToSection('home')}
+                  className="flex items-center gap-3 group"
+                >
+                  <img src={pathLogo} alt="Path" className="h-10 w-auto" />
+                  <span className="font-display font-semibold text-lg tracking-tight hidden sm:block">
+                    Path
+                  </span>
+                </button>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center space-x-8">
-                  {navItems.map((item) => (
+                {/* Desktop Nav */}
+                <div className="hidden md:flex items-center gap-8">
+                  {navItems.slice(1).map((item) => (
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      className={`text-sm font-semibold tracking-wide transition-colors duration-200 hover:text-maroon ${
-                        activeSection === item.id ? 'text-maroon' : 'text-gray-700'
+                      className={`text-sm font-medium tracking-wide link-underline transition-colors ${
+                        activeSection === item.id ? 'text-maroon' : 'text-stone-600 hover:text-stone-900'
                       }`}
                     >
                       {item.label}
                     </button>
                   ))}
-                  <button
-                    onClick={() => scrollToSection('contact')}
-                    className="bg-maroon text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-maroon-dark transition-all duration-200 shadow-md hover:shadow-lg"
+                  <a
+                    href="mailto:afafat73@students.claremontmckenna.edu"
+                    className="bg-stone-900 text-white px-5 py-2 text-sm font-medium tracking-wide hover:bg-maroon transition-colors"
                   >
-                    Partner With Us
-                  </button>
-                </nav>
+                    Get in touch
+                  </a>
+                </div>
 
                 {/* Mobile Menu Button */}
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="md:hidden p-2 rounded-md text-gray-700 hover:text-maroon focus:outline-none"
+                  className="md:hidden p-2 text-stone-700"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d={isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
                     />
                   </svg>
                 </button>
               </div>
 
-              {/* Mobile Navigation */}
+              {/* Mobile Menu */}
               {isMenuOpen && (
-                <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
-                  <div className="py-4 space-y-2">
-                    {navItems.map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => scrollToSection(item.id)}
-                        className={`block w-full text-left px-4 py-2 text-sm font-semibold transition-colors duration-200 hover:text-maroon hover:bg-gray-50 ${
-                          activeSection === item.id ? 'text-maroon bg-gray-50' : 'text-gray-700'
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    ))}
+                <div className="md:hidden border-t border-stone-200 bg-white py-4">
+                  {navItems.slice(1).map((item) => (
                     <button
-                      onClick={() => scrollToSection('contact')}
-                      className="block w-full text-left px-4 py-3 bg-maroon text-white text-sm font-semibold hover:bg-maroon-dark transition-colors mx-4 mt-4 rounded-lg"
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`block w-full text-left px-6 py-3 text-sm font-medium ${
+                        activeSection === item.id ? 'text-maroon' : 'text-stone-700'
+                      }`}
                     >
-                      Partner With Us
+                      {item.label}
                     </button>
+                  ))}
+                  <div className="px-6 pt-4">
+                    <a
+                      href="mailto:afafat73@students.claremontmckenna.edu"
+                      className="block w-full text-center bg-stone-900 text-white px-5 py-3 text-sm font-medium"
+                    >
+                      Get in touch
+                    </a>
                   </div>
                 </div>
               )}
             </div>
-          </header>
+          </nav>
 
           {/* Hero Section */}
-          <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-            {/* Background with gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100">
-              <div className="absolute inset-0 opacity-5" style={{
-                backgroundImage: 'radial-gradient(circle at 20% 50%, #800020 0%, transparent 50%), radial-gradient(circle at 80% 80%, #800020 0%, transparent 50%)'
-              }}></div>
-            </div>
-
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-              <div className="text-center">
-                {/* Main Headline */}
-                <h1
-                  className="text-5xl md:text-7xl font-display font-bold text-gray-900 mb-6 leading-tight"
-                  data-aos="fade-up"
-                >
-                  Strengthening Democracy
-                  <br />
-                  <span className="text-maroon">Through Local Impact</span>
-                </h1>
-
-                {/* Subheadline */}
-                <p
-                  className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  Student-led consulting for civic institutions, local governments, and community organizations
-                </p>
-
-                {/* CTAs */}
-                <div
-                  className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <button
-                    onClick={() => scrollToSection('projects')}
-                    className="bg-maroon text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-maroon-dark transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-                  >
-                    View Our Work
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('about')}
-                    className="border-2 border-maroon text-maroon px-8 py-4 rounded-lg text-lg font-semibold hover:bg-maroon hover:text-white transition-all duration-200"
-                  >
-                    Learn More
-                  </button>
-                </div>
-
-                {/* Stats Bar */}
-                <div
-                  className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                >
-                  {stats.map((stat, index) => (
-                    <div key={index} className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                      <div className="stat-number font-display">{stat.number}</div>
-                      <div className="text-gray-600 font-semibold mt-2">{stat.label}</div>
+          <section id="home" className="relative min-h-screen flex items-center pt-20 noise-overlay">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24">
+              <div className="grid lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-7">
+                  <div className="space-y-8">
+                    <div className="font-mono text-xs tracking-widest text-maroon uppercase">
+                      Claremont McKenna College
                     </div>
-                  ))}
+
+                    <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight">
+                      Strengthening<br/>
+                      <span className="text-gradient">Local Democracy</span>
+                    </h1>
+
+                    <div className="max-w-xl">
+                      <p className="text-xl text-stone-600 leading-relaxed">
+                        A student-led consulting practice partnering with civic institutions,
+                        local governments, and community organizations to build resilient democratic infrastructure.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 pt-4">
+                      <button
+                        onClick={() => scrollToSection('work')}
+                        className="bg-maroon text-white px-8 py-4 text-sm font-medium tracking-wide hover:bg-maroon-dark transition-colors"
+                      >
+                        View Projects
+                      </button>
+                      <button
+                        onClick={() => scrollToSection('about')}
+                        className="border border-stone-300 text-stone-900 px-8 py-4 text-sm font-medium tracking-wide hover:border-stone-900 transition-colors"
+                      >
+                        Learn More
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5">
+                  <div className="grid grid-cols-1 gap-6">
+                    {metrics.map((metric, index) => (
+                      <div
+                        key={index}
+                        className="border-l-2 border-maroon pl-6 py-4 bg-white"
+                        style={{ animationDelay: `${index * 100}ms` }}
+                      >
+                        <div className="font-display text-3xl font-bold text-stone-900 stat-display mb-2">
+                          {metric.value}
+                        </div>
+                        <div className="text-sm text-stone-600 leading-relaxed">
+                          {metric.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative element */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-maroon to-transparent opacity-20"></div>
+          </section>
+
+          {/* About Section */}
+          <section id="about" className="py-24 md:py-32 bg-white">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+              <div className="grid lg:grid-cols-12 gap-16 items-start">
+                <div className="lg:col-span-5">
+                  <div className="sticky top-32">
+                    <div className="font-mono text-xs tracking-widest text-maroon uppercase mb-6">
+                      01 / About
+                    </div>
+                    <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-8">
+                      Building Democracy<br/>From the Ground Up
+                    </h2>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7 space-y-8">
+                  <div className="prose prose-lg max-w-none">
+                    <p className="text-xl text-stone-700 leading-relaxed">
+                      Path Consulting is a student-led consultancy at Claremont McKenna College.
+                      We partner with local governments, civic institutions, and elected officials
+                      to strengthen public service at the community level.
+                    </p>
+                  </div>
+
+                  <div className="border-l-2 border-stone-200 pl-8 py-4">
+                    <h3 className="font-display text-xl font-semibold mb-4">Our Partners</h3>
+                    <div className="space-y-3 text-stone-600">
+                      <div>San Gabriel Valley Council of Governments</div>
+                      <div>Los Angeles County Development Authority</div>
+                      <div>City of Claremont & Regional School Districts</div>
+                      <div>Community Mental Health Organizations</div>
+                    </div>
+                  </div>
+
+                  <div className="bg-stone-50 p-8 border border-stone-200">
+                    <h3 className="font-display text-xl font-semibold mb-4">Our Approach</h3>
+                    <p className="text-stone-700 leading-relaxed">
+                      We work to build resilient, participatory local institutions that ensure
+                      democracy remains a living, collective practice. Through research, policy
+                      analysis, and strategic recommendations, we help institutions tackle pressing
+                      civic challenges—from housing and homelessness to election administration
+                      and public transit planning.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
+                    {capabilities.map((cap, index) => (
+                      <div key={index} className="text-sm text-stone-600 border-l border-maroon pl-3 py-2">
+                        {cap}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Who We Are Section */}
-          <section id="about" className="py-20 md:py-32 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Text Content */}
-                <div data-aos="fade-right">
-                  <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6">
-                    Who We Are
-                  </h2>
-                  <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-                    <p>
-                      Path Consulting is a student-led team of approximately 25 Claremont McKenna College students who partner with local governments, civic institutions, non-profits, and elected officials to strengthen public service at the community level.
-                    </p>
-                    <p>
-                      Our clients range from city councils and school boards to state representatives and regional authorities, including:
-                    </p>
-                    <ul className="space-y-3 ml-6">
-                      <li className="flex items-start">
-                        <span className="text-maroon mr-2 font-bold">•</span>
-                        San Gabriel Valley Council of Governments
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-maroon mr-2 font-bold">•</span>
-                        Los Angeles County Development Authority
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-maroon mr-2 font-bold">•</span>
-                        Claremont City Officials
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-maroon mr-2 font-bold">•</span>
-                        School Districts and Regional Authorities
-                      </li>
-                    </ul>
-                  </div>
+          {/* Projects Section */}
+          <section id="work" className="py-24 md:py-32 bg-stone-50">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+              <div className="mb-16">
+                <div className="font-mono text-xs tracking-widest text-maroon uppercase mb-6">
+                  02 / Selected Work
                 </div>
-
-                {/* Visual Element */}
-                <div className="relative" data-aos="fade-left">
-                  <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl overflow-hidden shadow-2xl p-8">
-                    <img
-                      src={pathLogo}
-                      alt="Path Consulting Logo"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  {/* Decorative elements */}
-                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-maroon rounded-full opacity-10 -z-10"></div>
-                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-black rounded-full opacity-10 -z-10"></div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Mission Section */}
-          <section id="mission" className="py-20 md:py-32 gradient-maroon text-white">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <h2
-                className="text-4xl md:text-5xl font-display font-bold mb-8"
-                data-aos="fade-up"
-              >
-                Our Mission
-              </h2>
-              <div className="h-1 w-24 bg-white mx-auto mb-8"></div>
-              <h3
-                className="text-3xl md:text-4xl font-display font-semibold mb-6"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                Building Resilient, Participatory Local Institutions
-              </h3>
-              <p
-                className="text-xl md:text-2xl leading-relaxed opacity-95"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                We work to build resilient, participatory local institutions that ensure democracy remains a living, collective practice. Through research, policy analysis, and strategic recommendations, we help institutions tackle pressing civic challenges—from housing and homelessness to election administration and public transit planning.
-              </p>
-            </div>
-          </section>
-
-          {/* Why We Do What We Do Section */}
-          <section id="why" className="py-20 md:py-32 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2
-                  className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6"
-                  data-aos="fade-up"
-                >
-                  Why We Do What We Do
+                <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
+                  Projects in Civic<br/>Infrastructure
                 </h2>
-                <div className="h-1 w-24 bg-maroon mx-auto"></div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {whyCards.map((card, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl p-8 shadow-lg hover-lift"
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
-                  >
-                    <div className="mb-6">{card.icon}</div>
-                    <h3 className="text-2xl font-display font-bold text-gray-900 mb-4">
-                      {card.title}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {card.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Featured Projects Section */}
-          <section id="projects" className="py-20 md:py-32 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2
-                  className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6"
-                  data-aos="fade-up"
-                >
-                  Featured Projects
-                </h2>
-                <div className="h-1 w-24 bg-maroon mx-auto mb-6"></div>
-                <p
-                  className="text-xl text-gray-600 max-w-3xl mx-auto"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  Delivering impact through evidence-based policy research and strategic recommendations
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-1">
                 {projects.map((project, index) => (
                   <div
                     key={index}
-                    className="project-card bg-white rounded-xl p-8 shadow-md"
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
+                    className="project-item bg-white p-8 md:p-12 border-b border-stone-200 group"
                   >
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${project.tagColor}`}>
-                      {project.tag}
-                    </span>
-                    <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-maroon font-semibold mb-4 text-sm">
-                      {project.client}
+                    <div className="grid md:grid-cols-12 gap-8">
+                      <div className="md:col-span-3">
+                        <div className="space-y-3">
+                          <div className="font-mono text-xs text-stone-500 tracking-wider">
+                            {project.year}
+                          </div>
+                          <div className="inline-block px-3 py-1 bg-maroon bg-opacity-10 text-maroon text-xs font-medium tracking-wide">
+                            {project.domain}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="md:col-span-9 space-y-4">
+                        <h3 className="font-display text-2xl md:text-3xl font-bold text-stone-900 group-hover:text-maroon transition-colors">
+                          {project.title}
+                        </h3>
+                        <div className="text-sm text-stone-500 font-medium">
+                          {project.client}
+                        </div>
+                        <p className="text-stone-700 leading-relaxed max-w-3xl">
+                          {project.description}
+                        </p>
+                        <div className="pt-2 border-t border-stone-200">
+                          <div className="text-sm font-medium text-stone-900">
+                            {project.impact}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Approach Section */}
+          <section id="approach" className="py-24 md:py-32 bg-maroon text-white">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+              <div className="grid lg:grid-cols-2 gap-16">
+                <div>
+                  <div className="font-mono text-xs tracking-widest text-white text-opacity-60 uppercase mb-6">
+                    03 / Philosophy
+                  </div>
+                  <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-8">
+                    Why Local<br/>Government Matters
+                  </h2>
+                </div>
+
+                <div className="space-y-8">
+                  <div className="border-l-2 border-white border-opacity-40 pl-8 py-4">
+                    <h3 className="font-display text-xl font-semibold mb-3">Local Impact</h3>
+                    <p className="text-white text-opacity-90 leading-relaxed">
+                      Meaningful democratic change begins at the community level. We connect
+                      academic research with real-world policy solutions that strengthen civic institutions.
                     </p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      {project.description}
+                  </div>
+
+                  <div className="border-l-2 border-white border-opacity-40 pl-8 py-4">
+                    <h3 className="font-display text-xl font-semibold mb-3">Evidence-Based</h3>
+                    <p className="text-white text-opacity-90 leading-relaxed">
+                      Our work is grounded in rigorous research, policy analysis, and strategic thinking.
+                      We believe effective governance requires both analytical depth and practical wisdom.
                     </p>
-                    <button className="flex items-center text-maroon font-semibold hover:text-maroon-dark transition-colors group">
-                      Read More
-                      <span className="ml-2 transform group-hover:translate-x-1 transition-transform">
-                        <ArrowRightIcon />
-                      </span>
-                    </button>
                   </div>
-                ))}
+
+                  <div className="border-l-2 border-white border-opacity-40 pl-8 py-4">
+                    <h3 className="font-display text-xl font-semibold mb-3">Student-Led Excellence</h3>
+                    <p className="text-white text-opacity-90 leading-relaxed">
+                      We train the next generation of civic leaders—teaching students to navigate
+                      bureaucracy, craft evidence-based policy, and advance participatory democracy.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* Our Expertise Section */}
-          <section id="expertise" className="py-20 md:py-32 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2
-                  className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6"
-                  data-aos="fade-up"
-                >
-                  Our Expertise
-                </h2>
-                <div className="h-1 w-24 bg-maroon mx-auto"></div>
-              </div>
+          {/* Contact Section */}
+          <section id="contact" className="py-24 md:py-32 bg-stone-900 text-white">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                  <div className="font-mono text-xs tracking-widest text-white text-opacity-60 uppercase mb-6">
+                    04 / Connect
+                  </div>
+                  <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    Let's Work<br/>Together
+                  </h2>
+                  <p className="text-xl text-white text-opacity-80 leading-relaxed">
+                    Partner with Path Consulting to strengthen your organization's civic impact.
+                  </p>
+                </div>
 
-              <div
-                className="grid grid-cols-2 md:grid-cols-4 gap-6"
-                data-aos="fade-up"
-              >
-                {expertiseAreas.map((area, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-lg p-6 shadow-md text-center hover:shadow-lg transition-shadow border border-gray-100"
+                <div className="space-y-8">
+                  <a
+                    href="mailto:afafat73@students.claremontmckenna.edu"
+                    className="group block"
                   >
-                    <p className="font-semibold text-gray-800">{area}</p>
+                    <div className="text-sm text-white text-opacity-60 mb-2 font-mono tracking-wider">
+                      Email
+                    </div>
+                    <div className="text-2xl font-display font-semibold group-hover:text-maroon-light transition-colors">
+                      afafat73@students.claremontmckenna.edu
+                    </div>
+                  </a>
+
+                  <div>
+                    <div className="text-sm text-white text-opacity-60 mb-2 font-mono tracking-wider">
+                      Location
+                    </div>
+                    <div className="text-lg font-medium">
+                      Claremont McKenna College<br/>
+                      Claremont, California
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          </section>
 
-          {/* Partners Section */}
-          <section id="partners" className="py-20 md:py-32 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2
-                  className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6"
-                  data-aos="fade-up"
-                >
-                  Our Partners
-                </h2>
-                <div className="h-1 w-24 bg-maroon mx-auto mb-6"></div>
-                <p
-                  className="text-xl text-gray-600"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  Trusted by leading civic institutions and local governments
-                </p>
-              </div>
-
-              <div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                data-aos="fade-up"
-              >
-                {partners.map((partner, index) => (
-                  <div
-                    key={index}
-                    className="bg-gray-50 rounded-lg p-8 shadow-md text-center hover:shadow-lg transition-all hover-lift border border-gray-200"
-                  >
-                    <p className="font-semibold text-gray-800">{partner}</p>
+                  <div className="pt-8 border-t border-white border-opacity-20">
+                    <a
+                      href="mailto:afafat73@students.claremontmckenna.edu"
+                      className="inline-block bg-maroon text-white px-8 py-4 text-sm font-medium tracking-wide hover:bg-maroon-light transition-colors"
+                    >
+                      Start a Conversation
+                    </a>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          </section>
-
-          {/* Call-to-Action Section */}
-          <section id="contact" className="py-20 md:py-32 gradient-maroon text-white">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <h2
-                className="text-4xl md:text-5xl font-display font-bold mb-6"
-                data-aos="fade-up"
-              >
-                Partner With Path Consulting
-              </h2>
-              <p
-                className="text-xl md:text-2xl mb-10 opacity-95"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                Connect with our team to strengthen your organization's civic impact
-              </p>
-              <a
-                href="mailto:pathconsulting@claremont.edu"
-                className="inline-block bg-white text-maroon px-10 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-xl"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                Get In Touch
-              </a>
-              <p
-                className="mt-8 text-lg opacity-90"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                Email: pathconsulting@claremont.edu
-              </p>
             </div>
           </section>
 
           {/* Footer */}
-          <footer className="bg-black text-white py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                {/* Column 1: Logo & Tagline */}
-                <div className="md:col-span-1">
-                  <img src={pathLogo} alt="Path Consulting Logo" className="h-12 w-auto mb-4" />
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Strengthening democracy through local impact
-                  </p>
+          <footer className="bg-stone-900 text-white border-t border-white border-opacity-10 py-12">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div className="flex items-center gap-3">
+                  <img src={pathLogo} alt="Path" className="h-8 w-auto opacity-80" />
+                  <span className="font-display font-semibold text-white text-opacity-80">
+                    Path Consulting
+                  </span>
                 </div>
 
-                {/* Column 2: Quick Links */}
-                <div>
-                  <h4 className="text-lg font-display font-semibold mb-4">Quick Links</h4>
-                  <div className="space-y-2">
-                    {navItems.map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => scrollToSection(item.id)}
-                        className="block text-gray-400 hover:text-white transition-colors text-sm"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-8 text-sm text-white text-opacity-60">
+                  <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">
+                    About
+                  </button>
+                  <button onClick={() => scrollToSection('work')} className="hover:text-white transition-colors">
+                    Work
+                  </button>
+                  <button onClick={() => scrollToSection('approach')} className="hover:text-white transition-colors">
+                    Approach
+                  </button>
+                  <button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors">
+                    Contact
+                  </button>
                 </div>
 
-                {/* Column 3: Contact Info */}
-                <div>
-                  <h4 className="text-lg font-display font-semibold mb-4">Contact</h4>
-                  <div className="space-y-2 text-sm text-gray-400">
-                    <p>Claremont McKenna College</p>
-                    <p>Claremont, CA 91711</p>
-                    <a href="mailto:pathconsulting@claremont.edu" className="hover:text-white transition-colors block">
-                      pathconsulting@claremont.edu
-                    </a>
-                  </div>
+                <div className="text-sm text-white text-opacity-60">
+                  © {new Date().getFullYear()} Path Consulting
                 </div>
-
-                {/* Column 4: Social Media */}
-                <div>
-                  <h4 className="text-lg font-display font-semibold mb-4">Connect</h4>
-                  <div className="space-y-2 text-sm">
-                    <a href="#" className="block text-gray-400 hover:text-white transition-colors">
-                      LinkedIn
-                    </a>
-                    <a href="#" className="block text-gray-400 hover:text-white transition-colors">
-                      Instagram
-                    </a>
-                    <a href="#" className="block text-gray-400 hover:text-white transition-colors">
-                      Twitter
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Bar */}
-              <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-                <p>© {new Date().getFullYear()} Path Consulting | Claremont McKenna College. All rights reserved.</p>
               </div>
             </div>
           </footer>
@@ -766,7 +727,6 @@
       );
     }
 
-    // Render the App
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>
