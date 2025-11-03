@@ -3,82 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Path Consulting</title>
-  <!-- Icons (browsers & iOS share bubble) -->
-<link rel="icon" href="/pathLogo.png" type="image/png">
-<link rel="apple-touch-icon" href="/pathLogo.png">
+  <title>Path Consulting - Strengthening Democracy Through Local Impact</title>
 
-<!-- Canonical URL -->
-<link rel="canonical" href="https://www.cmcpath.com/">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Path Consulting is a student-led team from Claremont McKenna College partnering with local governments, civic institutions, and elected officials to strengthen democracy at the community level." />
+  <meta name="keywords" content="consulting, civic engagement, local government, policy research, democracy, Claremont McKenna College" />
 
-<!-- Open Graph (used by iMessage, Slack, FB, etc.) -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Path Consulting">
-<meta property="og:title" content="Path Consulting">
-<meta property="og:description" content="Policy & AI strategy, research, and execution.">
-<meta property="og:url" content="https://www.cmcpath.com/">
-<meta property="og:image" content="https://www.cmcpath.com/pathLogo.png">
-<meta property="og:image:alt" content="Path Consulting logo">
+  <!-- Icons -->
+  <link rel="icon" href="/pathLogo.png" type="image/png">
+  <link rel="apple-touch-icon" href="/pathLogo.png">
 
-<!-- Twitter (many apps use this too) -->
-<meta name="twitter:card" content="summary"> <!-- 'summary' suits square logos -->
-<meta name="twitter:title" content="Path Consulting">
-<meta name="twitter:description" content="Policy & AI strategy, research, and execution.">
-<meta name="twitter:image" content="https://www.cmcpath.com/pathLogo.png">
-  <!-- Include Tailwind via CDN for utility classes -->
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.cmcpath.com/">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Path Consulting">
+  <meta property="og:title" content="Path Consulting - Strengthening Democracy Through Local Impact">
+  <meta property="og:description" content="Student-led consulting for civic institutions, local governments, and community organizations">
+  <meta property="og:url" content="https://www.cmcpath.com/">
+  <meta property="og:image" content="https://www.cmcpath.com/pathLogo.png">
+  <meta property="og:image:alt" content="Path Consulting logo">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Path Consulting - Strengthening Democracy Through Local Impact">
+  <meta name="twitter:description" content="Student-led consulting for civic institutions, local governments, and community organizations">
+  <meta name="twitter:image" content="https://www.cmcpath.com/pathLogo.png">
+
+  <!-- Google Fonts - Professional Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Extend Tailwind's config to define custom colors and fonts -->
+
+  <!-- AOS (Animate On Scroll) Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Tailwind Configuration -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             maroon: {
-              DEFAULT: '#800000',
-              dark: '#600000'
-            },
-            cream: '#f9f7f3'
+              DEFAULT: '#800020',
+              dark: '#600000',
+              light: '#9B0026'
+            }
           },
           fontFamily: {
-            serif: ['Georgia', 'Times New Roman', 'serif'],
-            sans: ['Helvetica', 'Arial', 'sans-serif']
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif']
           }
         }
       }
     }
   </script>
-  <!-- Custom CSS classes for opacity and other tweaks -->
+
+  <!-- Custom Styles -->
   <style>
-    /* Color utilities not provided by Tailwind's default palette */
-    .bg-white-90 { background-color: rgba(255, 255, 255, 0.9); }
-    .border-maroon-20 { border-color: rgba(128, 0, 0, 0.2); }
-    .bg-maroon-10 { background-color: rgba(128, 0, 0, 0.1); }
-    .bg-black-05 { background-color: rgba(0, 0, 0, 0.05); }
-    .hover\:bg-maroon-dark:hover { background-color: #600000; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .bg-white-90 {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    .backdrop-blur-md {
+      backdrop-filter: blur(12px);
+    }
+
+    .gradient-maroon {
+      background: linear-gradient(135deg, #800020 0%, #600000 100%);
+    }
+
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hover-lift {
+      transition: all 0.3s ease;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e5e5;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(128, 0, 32, 0.15);
+      border-color: #800020;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #800020;
+    }
+
+    @media (max-width: 768px) {
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
-<body class="min-h-screen bg-cream text-black font-sans">
+
+<body class="min-h-screen bg-white text-gray-900 font-sans antialiased">
   <div id="root"></div>
+
   <!-- React and Babel -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
   <!-- Application Script -->
   <script type="text/babel">
     const { useState, useEffect } = React;
-
-    // Path to the logo image in the same directory as this HTML file
     const pathLogo = 'pathLogo.png';
+
+    // Icon Components (using SVG)
+    const TargetIcon = () => (
+      <svg className="w-12 h-12 text-maroon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    );
+
+    const BookIcon = () => (
+      <svg className="w-12 h-12 text-maroon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+    );
+
+    const HandshakeIcon = () => (
+      <svg className="w-12 h-12 text-maroon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    );
+
+    const ArrowRightIcon = () => (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    );
 
     function App() {
       const [activeSection, setActiveSection] = useState('home');
       const [isMenuOpen, setIsMenuOpen] = useState(false);
+      const [scrolled, setScrolled] = useState(false);
 
-      // Handle scroll to update active section
       useEffect(() => {
+        // Initialize AOS animations
+        AOS.init({
+          duration: 800,
+          once: true,
+          offset: 100
+        });
+
+        // Handle scroll for sticky nav
         const handleScroll = () => {
-          const sections = ['home', 'about', 'timeline', 'apply'];
+          setScrolled(window.scrollY > 50);
+
+          // Update active section
+          const sections = ['home', 'about', 'mission', 'why', 'projects', 'expertise', 'partners', 'contact'];
           const scrollPosition = window.scrollY + 100;
+
           for (const section of sections) {
             const element = document.getElementById(section);
             if (element) {
@@ -91,52 +192,138 @@
             }
           }
         };
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
       }, []);
 
-      // Mock data for timeline
-      const timelineData = [
-      { date: 'September 9', title: 'Written Applications Due', description: 'Submit your application through our Google Form' },
-      { date: 'September 12, 13', title: 'Technical Interviews', description: '' },
-      { date: 'September 17, 18', title: 'Behavioral Interviews', description: '' },
-      { date: 'September 19', title: ' Final Decisions Announced', description: "We'll notify applicants of their status" }
-      ];
-
-      // Scroll to section
       const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          const offset = 80;
+          const elementPosition = element.offsetTop - offset;
+          window.scrollTo({ top: elementPosition, behavior: 'smooth' });
         }
         setIsMenuOpen(false);
       };
 
+      const navItems = [
+        { id: 'home', label: 'Home' },
+        { id: 'about', label: 'About' },
+        { id: 'mission', label: 'Mission' },
+        { id: 'projects', label: 'Projects' },
+        { id: 'contact', label: 'Contact' }
+      ];
+
+      const stats = [
+        { number: '25+', label: 'Student Consultants' },
+        { number: '15+', label: 'Completed Projects' },
+        { number: '10+', label: 'Partner Organizations' }
+      ];
+
+      const whyCards = [
+        {
+          icon: <TargetIcon />,
+          title: 'Local Impact',
+          description: 'Meaningful change begins at the local level. We connect research with real-world policy solutions.'
+        },
+        {
+          icon: <BookIcon />,
+          title: 'Student Excellence',
+          description: 'Teaching students to navigate bureaucracy, craft evidence-based policy, and stimulate civic engagement.'
+        },
+        {
+          icon: <HandshakeIcon />,
+          title: 'Democratic Resilience',
+          description: 'Advancing participatory democracy by strengthening civic institutions and empowering communities.'
+        }
+      ];
+
+      const projects = [
+        {
+          title: 'Election Systems Analysis',
+          client: 'Claremont Councilmember Corey Calaycay',
+          description: 'Investigated canceled/uncontested elections in small California cities post-district voting reform. Found 20%+ drop in contested races, drove policy recommendations.',
+          tag: 'Democracy & Elections',
+          tagColor: 'bg-blue-100 text-blue-800'
+        },
+        {
+          title: 'Supportive Housing Strategy',
+          client: 'Touchstone Mental Health (Minnesota)',
+          description: 'Developed advocacy strategy for supportive housing amid community opposition. Delivered policy analysis, public outreach materials, and stakeholder engagement toolkit.',
+          tag: 'Housing & Mental Health',
+          tagColor: 'bg-green-100 text-green-800'
+        },
+        {
+          title: 'Tiny Homes Feasibility Study',
+          client: 'Claremont Mayor Sal Medina',
+          description: 'Comprehensive study on Tiny Homes to address homelessness. 40% transition rate to permanent housing, identified state funding pathways.',
+          tag: 'Homelessness Solutions',
+          tagColor: 'bg-purple-100 text-purple-800'
+        },
+        {
+          title: 'Transit Infrastructure Analysis',
+          client: 'San Gabriel Valley Council of Governments',
+          description: 'Cost analysis for Jump Start BRT Projects ahead of 2028 Olympics. Identified 26-31% cost increases, improved budget accuracy.',
+          tag: 'Public Transit',
+          tagColor: 'bg-orange-100 text-orange-800'
+        }
+      ];
+
+      const expertiseAreas = [
+        'Policy Research & Analysis',
+        'Strategic Recommendations',
+        'Civic Engagement',
+        'Housing & Homelessness',
+        'Election Administration',
+        'Public Transit Planning',
+        'Government Operations',
+        'Community Outreach'
+      ];
+
+      const partners = [
+        'San Gabriel Valley Council of Governments',
+        'Los Angeles County Development Authority',
+        'City of Claremont',
+        'Claremont Unified School District',
+        'Touchstone Mental Health'
+      ];
+
       return (
-        <div className="min-h-screen bg-cream text-black font-sans">
-          {/* Header/Navigation */}
-          <header className="fixed top-0 left-0 right-0 z-50 bg-white-90 backdrop-blur-sm border-b border-maroon-20">
+        <div className="min-h-screen bg-white">
+          {/* Navigation */}
+          <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            scrolled ? 'bg-white-90 backdrop-blur-md shadow-md' : 'bg-transparent'
+          }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16">
+              <div className="flex justify-between items-center h-20">
                 {/* Logo */}
-                <div className="flex-shrink-0">
-                  <img src={pathLogo} alt="Path Consulting Logo" className="h-10 w-auto" />
+                <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('home')}>
+                  <img src={pathLogo} alt="Path Consulting Logo" className="h-12 w-auto" />
                 </div>
+
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex space-x-8">
-                  {['home', 'about', 'timeline', 'apply'].map((section) => (
+                <nav className="hidden md:flex items-center space-x-8">
+                  {navItems.map((item) => (
                     <button
-                      key={section}
-                      onClick={() => scrollToSection(section)}
-                      className={`capitalize font-medium transition-colors duration-200 hover:text-maroon ${
-                        activeSection === section ? 'text-maroon font-bold' : 'text-gray-700'
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`text-sm font-semibold tracking-wide transition-colors duration-200 hover:text-maroon ${
+                        activeSection === item.id ? 'text-maroon' : 'text-gray-700'
                       }`}
                     >
-                      {section === 'home' ? 'Home' : section === 'about' ? 'About Us' : section === 'timeline' ? 'Timeline' : 'Apply Now'}
+                      {item.label}
                     </button>
                   ))}
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="bg-maroon text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-maroon-dark transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    Partner With Us
+                  </button>
                 </nav>
-                {/* Mobile menu button */}
+
+                {/* Mobile Menu Button */}
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="md:hidden p-2 rounded-md text-gray-700 hover:text-maroon focus:outline-none"
@@ -151,180 +338,435 @@
                   </svg>
                 </button>
               </div>
+
               {/* Mobile Navigation */}
               {isMenuOpen && (
-                <div className="md:hidden bg-white border-t border-maroon-20">
-                  {['home', 'about', 'timeline', 'apply'].map((section) => (
+                <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+                  <div className="py-4 space-y-2">
+                    {navItems.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => scrollToSection(item.id)}
+                        className={`block w-full text-left px-4 py-2 text-sm font-semibold transition-colors duration-200 hover:text-maroon hover:bg-gray-50 ${
+                          activeSection === item.id ? 'text-maroon bg-gray-50' : 'text-gray-700'
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
                     <button
-                      key={section}
-                      onClick={() => scrollToSection(section)}
-                      className={`block w-full text-left px-4 py-2 capitalize font-medium transition-colors duration-200 hover:text-maroon ${
-                        activeSection === section ? 'text-maroon font-bold' : 'text-gray-700'
-                      }`}
+                      onClick={() => scrollToSection('contact')}
+                      className="block w-full text-left px-4 py-3 bg-maroon text-white text-sm font-semibold hover:bg-maroon-dark transition-colors mx-4 mt-4 rounded-lg"
                     >
-                      {section === 'home' ? 'Home' : section === 'about' ? 'About Us' : section === 'timeline' ? 'Timeline' : 'Apply Now'}
+                      Partner With Us
                     </button>
-                  ))}
+                  </div>
                 </div>
               )}
             </div>
           </header>
-          {/* Hero Section */}
-          <section id="home" className="pt-16 min-h-screen flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-maroon-10"></div>
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <div className="mb-8">
-                <h1 className="text-5xl md:text-7xl font-bold text-maroon mb-4 leading-tight font-serif">Path Consulting</h1>
-                <p className="text-xl md:text-2xl text-gray-700 mb-2 font-semibold font-sans">
 
-                </p>
-                <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed font-sans">
-                
-                </p>
-                <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto font-sans">
-                  We help political leaders optimize project efficiency, marketability, and outreach by conducting high-level policy research and creating strategic action plans.
-                </p>
-                <button
-                  onClick={() => scrollToSection('apply')}
-                  className="bg-maroon text-white px-8 py-4 rounded-lg text-lg font-semibold font-sans hover:bg-maroon-dark transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+          {/* Hero Section */}
+          <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            {/* Background with gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+              <div className="absolute inset-0 opacity-5" style={{
+                backgroundImage: 'radial-gradient(circle at 20% 50%, #800020 0%, transparent 50%), radial-gradient(circle at 80% 80%, #800020 0%, transparent 50%)'
+              }}></div>
+            </div>
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+              <div className="text-center">
+                {/* Main Headline */}
+                <h1
+                  className="text-5xl md:text-7xl font-display font-bold text-gray-900 mb-6 leading-tight"
+                  data-aos="fade-up"
                 >
-                  Apply Now
-                </button>
-              </div>
-            </div>
-          </section>
-          {/* About Us Section */}
-          <section id="about" className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-maroon mb-6 font-serif">About Us</h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-                  A student-run organization dedicated to non-partisan political and policy consulting
+                  Strengthening Democracy
+                  <br />
+                  <span className="text-maroon">Through Local Impact</span>
+                </h1>
+
+                {/* Subheadline */}
+                <p
+                  className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  Student-led consulting for civic institutions, local governments, and community organizations
                 </p>
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8">
-                  <div className="bg-gray-50 p-8 rounded-xl shadow-lg">
-                    <h3 className="text-2xl font-bold text-maroon mb-4 font-serif">Who We Are</h3>
-                    <p className="text-gray-700 leading-relaxed font-sans">
-                      Path Consulting is a student-led organization at Claremont McKenna College that provides strategic consulting services to organizations and policymakers. Our mission is to bridge the gap between academic research and real-world political strategy.
-                    </p>
-                  </div>
-                  <div className="bg-gray-50 p-8 rounded-xl shadow-lg">
-                    <h3 className="text-2xl font-bold text-maroon mb-4 font-serif">Our Non-Partisan Ethos</h3>
-                    <p className="text-gray-700 leading-relaxed font-sans">
-                      We believe in serving all political ideologies equally. Our approach is grounded in evidence-based analysis and objective research, ensuring that our recommendations are driven by data rather than partisan bias.
-                    </p>
-                  </div>
-                  <div className="bg-gray-50 p-8 rounded-xl shadow-lg">
-                    <h3 className="text-2xl font-bold text-maroon mb-4 font-serif">Our Work</h3>
-                    <p className="text-gray-700 leading-relaxed font-sans">
-                      Members work on diverse projects including policy analysis, strategic consulting, internal policy advisory, and more. We collaborate with both local and national political organizations to create meaningful change.
-                    </p>
-                  </div>
+
+                {/* CTAs */}
+                <div
+                  className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <button
+                    onClick={() => scrollToSection('projects')}
+                    className="bg-maroon text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-maroon-dark transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  >
+                    View Our Work
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('about')}
+                    className="border-2 border-maroon text-maroon px-8 py-4 rounded-lg text-lg font-semibold hover:bg-maroon hover:text-white transition-all duration-200"
+                  >
+                    Learn More
+                  </button>
                 </div>
-                <div className="relative">
-                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-xl">
-                    <img
-                      src={pathLogo}
-                      alt="Path Consulting Logo"
-                      className="w-full h-full object-contain p-6"
-                    />
-                  </div>
-                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-maroon rounded-full opacity-20"></div>
-                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-black rounded-full opacity-20"></div>
-                </div>
-              </div>
-            </div>
-          </section>
-          {/* Recruiting Timeline Section */}
-          <section id="timeline" className="py-20 bg-cream">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-maroon mb-6 font-serif">Recruiting Timeline</h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
-                  Key dates for joining Path Consulting
-                </p>
-              </div>
-              <div className="relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-maroon"></div>
-                <div className="space-y-12 relative">
-                  {timelineData.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} gap-8`}
-                    >
-                      <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-maroon rounded-full border-4 border-white z-10"></div>
-                      <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'} flex items-center`}>
-                        <div className="bg-white p-6 rounded-xl shadow-lg w-full">
-                          <div className="flex items-start justify-between mb-3">
-                            <span className="font-bold text-maroon font-sans">{item.date}</span>
-                            <div className="w-3 h-3 bg-maroon rounded-full mt-1"></div>
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-800 mb-2 font-serif">{item.title}</h3>
-                          <p className="text-gray-600 font-sans">{item.description}</p>
-                        </div>
-                      </div>
+
+                {/* Stats Bar */}
+                <div
+                  className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  {stats.map((stat, index) => (
+                    <div key={index} className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                      <div className="stat-number font-display">{stat.number}</div>
+                      <div className="text-gray-600 font-semibold mt-2">{stat.label}</div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
           </section>
-          {/* Apply Now Section */}
-          <section id="apply" className="py-20 bg-white">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <div className="bg-cream p-12 rounded-2xl shadow-xl border border-maroon-20">
-                <h2 className="text-4xl md:text-5xl font-bold text-maroon mb-6 font-serif">Our Application</h2>
-                <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed font-sans">
-                  Become part of one of the premier consulting clubs at CMC.
-                </p>
-                <div className="space-y-6">
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfgqE2x_c9-wvk7mbqWUy_y9RB_4aXPEEIneGct5gFCSaFACw/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-maroon text-white px-12 py-5 rounded-lg text-lg font-semibold font-sans hover:bg-maroon-dark transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-                  >
-                    Apply Now →
-                  </a>
-                  <p className="text-gray-600 font-sans">
-                    Written application open until September 9th. Don't miss your chance to join!
-                  </p>
+
+          {/* Who We Are Section */}
+          <section id="about" className="py-20 md:py-32 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* Text Content */}
+                <div data-aos="fade-right">
+                  <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6">
+                    Who We Are
+                  </h2>
+                  <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                    <p>
+                      Path Consulting is a student-led team of approximately 25 Claremont McKenna College students who partner with local governments, civic institutions, non-profits, and elected officials to strengthen public service at the community level.
+                    </p>
+                    <p>
+                      Our clients range from city councils and school boards to state representatives and regional authorities, including:
+                    </p>
+                    <ul className="space-y-3 ml-6">
+                      <li className="flex items-start">
+                        <span className="text-maroon mr-2 font-bold">•</span>
+                        San Gabriel Valley Council of Governments
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-maroon mr-2 font-bold">•</span>
+                        Los Angeles County Development Authority
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-maroon mr-2 font-bold">•</span>
+                        Claremont City Officials
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-maroon mr-2 font-bold">•</span>
+                        School Districts and Regional Authorities
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Visual Element */}
+                <div className="relative" data-aos="fade-left">
+                  <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl overflow-hidden shadow-2xl p-8">
+                    <img
+                      src={pathLogo}
+                      alt="Path Consulting Logo"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  {/* Decorative elements */}
+                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-maroon rounded-full opacity-10 -z-10"></div>
+                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-black rounded-full opacity-10 -z-10"></div>
                 </div>
               </div>
             </div>
           </section>
-          {/* Footer */}
-          <footer className="bg-black text-white py-12">
+
+          {/* Mission Section */}
+          <section id="mission" className="py-20 md:py-32 gradient-maroon text-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2
+                className="text-4xl md:text-5xl font-display font-bold mb-8"
+                data-aos="fade-up"
+              >
+                Our Mission
+              </h2>
+              <div className="h-1 w-24 bg-white mx-auto mb-8"></div>
+              <h3
+                className="text-3xl md:text-4xl font-display font-semibold mb-6"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                Building Resilient, Participatory Local Institutions
+              </h3>
+              <p
+                className="text-xl md:text-2xl leading-relaxed opacity-95"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                We work to build resilient, participatory local institutions that ensure democracy remains a living, collective practice. Through research, policy analysis, and strategic recommendations, we help institutions tackle pressing civic challenges—from housing and homelessness to election administration and public transit planning.
+              </p>
+            </div>
+          </section>
+
+          {/* Why We Do What We Do Section */}
+          <section id="why" className="py-20 md:py-32 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2
+                  className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6"
+                  data-aos="fade-up"
+                >
+                  Why We Do What We Do
+                </h2>
+                <div className="h-1 w-24 bg-maroon mx-auto"></div>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-maroon mb-4 font-serif">Path Consulting</h3>
-                  <p className="text-gray-300 font-sans">
-                    Student-run political and policy consulting organization at Claremont McKenna College.
+                {whyCards.map((card, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-xl p-8 shadow-lg hover-lift"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
+                  >
+                    <div className="mb-6">{card.icon}</div>
+                    <h3 className="text-2xl font-display font-bold text-gray-900 mb-4">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      {card.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Featured Projects Section */}
+          <section id="projects" className="py-20 md:py-32 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2
+                  className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6"
+                  data-aos="fade-up"
+                >
+                  Featured Projects
+                </h2>
+                <div className="h-1 w-24 bg-maroon mx-auto mb-6"></div>
+                <p
+                  className="text-xl text-gray-600 max-w-3xl mx-auto"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  Delivering impact through evidence-based policy research and strategic recommendations
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {projects.map((project, index) => (
+                  <div
+                    key={index}
+                    className="project-card bg-white rounded-xl p-8 shadow-md"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
+                  >
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${project.tagColor}`}>
+                      {project.tag}
+                    </span>
+                    <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
+                      {project.title}
+                    </h3>
+                    <p className="text-maroon font-semibold mb-4 text-sm">
+                      {project.client}
+                    </p>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+                    <button className="flex items-center text-maroon font-semibold hover:text-maroon-dark transition-colors group">
+                      Read More
+                      <span className="ml-2 transform group-hover:translate-x-1 transition-transform">
+                        <ArrowRightIcon />
+                      </span>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Our Expertise Section */}
+          <section id="expertise" className="py-20 md:py-32 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2
+                  className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6"
+                  data-aos="fade-up"
+                >
+                  Our Expertise
+                </h2>
+                <div className="h-1 w-24 bg-maroon mx-auto"></div>
+              </div>
+
+              <div
+                className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                data-aos="fade-up"
+              >
+                {expertiseAreas.map((area, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-lg p-6 shadow-md text-center hover:shadow-lg transition-shadow border border-gray-100"
+                  >
+                    <p className="font-semibold text-gray-800">{area}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Partners Section */}
+          <section id="partners" className="py-20 md:py-32 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2
+                  className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6"
+                  data-aos="fade-up"
+                >
+                  Our Partners
+                </h2>
+                <div className="h-1 w-24 bg-maroon mx-auto mb-6"></div>
+                <p
+                  className="text-xl text-gray-600"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  Trusted by leading civic institutions and local governments
+                </p>
+              </div>
+
+              <div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                data-aos="fade-up"
+              >
+                {partners.map((partner, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 rounded-lg p-8 shadow-md text-center hover:shadow-lg transition-all hover-lift border border-gray-200"
+                  >
+                    <p className="font-semibold text-gray-800">{partner}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Call-to-Action Section */}
+          <section id="contact" className="py-20 md:py-32 gradient-maroon text-white">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2
+                className="text-4xl md:text-5xl font-display font-bold mb-6"
+                data-aos="fade-up"
+              >
+                Partner With Path Consulting
+              </h2>
+              <p
+                className="text-xl md:text-2xl mb-10 opacity-95"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                Connect with our team to strengthen your organization's civic impact
+              </p>
+              <a
+                href="mailto:pathconsulting@claremont.edu"
+                className="inline-block bg-white text-maroon px-10 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-xl"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                Get In Touch
+              </a>
+              <p
+                className="mt-8 text-lg opacity-90"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                Email: pathconsulting@claremont.edu
+              </p>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-black text-white py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                {/* Column 1: Logo & Tagline */}
+                <div className="md:col-span-1">
+                  <img src={pathLogo} alt="Path Consulting Logo" className="h-12 w-auto mb-4" />
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Strengthening democracy through local impact
                   </p>
                 </div>
+
+                {/* Column 2: Quick Links */}
                 <div>
-                  <h4 className="text-lg font-semibold mb-4 font-serif">Connect With Us</h4>
-                  <div className="space-y-3">
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors font-sans">Instagram @pathconsulting</a>
-                    <a href="mailto:info@pathconsulting.org" className="text-gray-300 hover:text-white transition-colors font-sans"></a>
+                  <h4 className="text-lg font-display font-semibold mb-4">Quick Links</h4>
+                  <div className="space-y-2">
+                    {navItems.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => scrollToSection(item.id)}
+                        className="block text-gray-400 hover:text-white transition-colors text-sm"
+                      >
+                        {item.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
+
+                {/* Column 3: Contact Info */}
                 <div>
-                  <h4 className="text-lg font-semibold mb-4 font-serif">Contact</h4>
-                  <p className="text-gray-300 font-sans">pathconsulting@claremont.edu</p>
+                  <h4 className="text-lg font-display font-semibold mb-4">Contact</h4>
+                  <div className="space-y-2 text-sm text-gray-400">
+                    <p>Claremont McKenna College</p>
+                    <p>Claremont, CA 91711</p>
+                    <a href="mailto:pathconsulting@claremont.edu" className="hover:text-white transition-colors block">
+                      pathconsulting@claremont.edu
+                    </a>
+                  </div>
+                </div>
+
+                {/* Column 4: Social Media */}
+                <div>
+                  <h4 className="text-lg font-display font-semibold mb-4">Connect</h4>
+                  <div className="space-y-2 text-sm">
+                    <a href="#" className="block text-gray-400 hover:text-white transition-colors">
+                      LinkedIn
+                    </a>
+                    <a href="#" className="block text-gray-400 hover:text-white transition-colors">
+                      Instagram
+                    </a>
+                    <a href="#" className="block text-gray-400 hover:text-white transition-colors">
+                      Twitter
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p className="font-sans">© {new Date().getFullYear()} Path Consulting </p>
+
+              {/* Bottom Bar */}
+              <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+                <p>© {new Date().getFullYear()} Path Consulting | Claremont McKenna College. All rights reserved.</p>
               </div>
             </div>
           </footer>
         </div>
       );
     }
+
+    // Render the App
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>
