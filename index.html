@@ -229,6 +229,7 @@
       const [isMenuOpen, setIsMenuOpen] = useState(false);
       const [scrolled, setScrolled] = useState(false);
       const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+      const [selectedProject, setSelectedProject] = useState(null);
 
       useEffect(() => {
         const handleScroll = () => {
@@ -284,34 +285,56 @@
 
       const projects = [
         {
-          year: '2024',
+          year: 'Fall 2024',
           title: 'Election Systems Analysis',
-          client: 'Claremont City Council',
+          client: 'Claremont Mayor Pro-Tem Corey Calaycay',
           description: 'Comprehensive investigation into uncontested elections following district voting reform. Identified 20%+ decline in electoral competition and developed actionable policy frameworks for increasing civic participation.',
+          fullDescription: 'Path Consulting partnered with Claremont Mayor Pro-Tem Corey Calaycay to investigate a growing concern: the rise of canceled and uncontested elections in small California cities following the shift from at-large to district-based voting systems. As Claremont and other municipalities adopted district elections to comply with the California Voting Rights Act, questions emerged about whether the change was unintentionally weakening local democracy. This project aligned closely with Path\'s mission to strengthen civic engagement and institutional accountability, examining how structural reforms meant to enhance representation might instead be reducing voter participation, candidate diversity, and public confidence in smaller cities.\n\nThrough comparative analysis of 21 small cities, Path found that district-based elections significantly decreased competitiveness. Contested races dropped by more than 20%, and appointments to vacant seats more than doubled. The number of canceled and uncontested elections surged, suggesting that smaller candidate pools within districts may be limiting meaningful voter choice. These findings emphasized the need for reforms that not only promote equitable representation but also revitalize civic participation by encouraging candidate engagement.',
           impact: 'Policy recommendations adopted by city leadership',
           domain: 'Electoral Systems'
         },
         {
-          year: '2024',
+          year: 'Fall 2024',
           title: 'Supportive Housing Advocacy',
           client: 'Touchstone Mental Health',
           description: 'Strategic advocacy framework for supportive housing development in Minnesota. Navigated community resistance through evidence-based policy analysis and stakeholder engagement protocols.',
+          fullDescription: 'Path worked with Touchstone Mental Health to advance its mission of expanding access to supportive housing and mental health resources across Minnesota. In response to the local backlash that halted Touchstone\'s Lincoln on the Creek project in Edina, our team examined how stigma and zoning restrictions limit progress on statewide issues like housing insecurity and mental health care. The project sought to help Touchstone both destigmatize supportive housing and strategically advocate for zoning reform.\n\nOur deliverables included a comparative policy analysis of bills similar to Minnesota\'s SF-1370, public outreach materials like an op-ed and brochure, a proposed virtual facilities tour to increase transparency, and an interview series to humanize the impact of supportive housing. This work was impactful in strengthening Touchstone\'s community presence and advancing its capacity to engage local stakeholders, influence public perception, and hold policy discussions centered around equitable access to housing and mental health care.',
           impact: 'Community approval secured, project greenlit',
           domain: 'Housing Policy'
         },
         {
-          year: '2023',
+          year: 'Fall 2024',
           title: 'Tiny Homes Initiative',
-          client: 'Office of the Mayor, Claremont',
+          client: 'Claremont Mayor Sal Medina',
           description: 'Feasibility study examining tiny homes as transitional housing solution. Analyzed state funding mechanisms, regulatory frameworks, and success metrics from existing programs.',
+          fullDescription: 'At the request of Claremont Mayor Sal Medina, Path conducted a comprehensive study on the feasibility of a Tiny Homes initiative to address the city\'s rapidly growing unhoused population. With homelessness in Claremont having doubled since 2020 and limited local shelter capacity, the project sought to identify practical, compassionate, and fiscally responsible solutions that could strengthen community wellbeing and civic trust.\n\nThe team delivered a three-part package for Mayor Medina and the Claremont City Council: a research report, a public-facing article, and a funding roadmap outlining next steps for implementation. Drawing from interviews with unhoused residents, cost analyses, and case studies of successful programs in Tacoma and Santa Clara, Path found that Tiny Homes significantly outperformed traditional shelters, transitioning up to 40% of residents into permanent housing. The roadmap identified clear state funding opportunities through California\'s Homekey and HHAP programs, providing Claremont with a viable path to pilot its own Tiny Homes community.',
           impact: '40% permanent housing transition rate identified',
           domain: 'Homelessness'
         },
         {
-          year: '2023',
+          year: 'Spring 2025',
+          title: 'School District Election Cost Analysis',
+          client: 'CUSD Board President Kathryn Dunn',
+          description: 'Investigation into why CUSD\'s 2023 special election cost nearly double the original estimate, with policy recommendations for financial relief and transparency.',
+          fullDescription: 'Path Consulting partnered with Claremont Unified School District (CUSD) Board President Kathryn Dunn to investigate why the district\'s 2023 special election cost nearly double the original estimate and to identify options for financial relief. The project examined California\'s election laws, reimbursement mechanisms, and comparable cases across other school districts, revealing systemic underestimation of special election costs and barriers that prevent small districts from recovering funds.\n\nThe resulting research memo (shared with Rep. Judy Chu) outlined legislative recommendations to improve transparency, accountability, and reimbursement accessibility. By connecting fiscal fairness to democratic participation, the project highlighted how ensuring equitable election processes directly supports both civic engagement and the financial stability of public education.',
+          impact: 'Legislative recommendations shared with Rep. Judy Chu',
+          domain: 'Electoral Systems'
+        },
+        {
+          year: 'Spring 2025',
+          title: 'Homelessness Response System Evaluation',
+          client: 'Los Angeles County Development Authority',
+          description: 'Comprehensive evaluation of LACDA\'s Continuum of Care and Coordinated Access System, with evidence-based recommendations to improve housing placement efficiency.',
+          fullDescription: 'The Los Angeles County Development Authority (LACDA) engaged Path to evaluate and strengthen the performance of its Continuum of Care (CoC) and Coordinated Access System (CAS), key components of the county\'s homelessness response infrastructure. Recognizing inefficiencies in housing placements and coordination between agencies, this project focused on assessing how LACDA\'s systems operate across bureaucratic and intergovernmental layers, particularly in their collaboration with Public Housing Authorities (PHAs). Improving these systems is vital to ensuring equitable and timely housing access for Los Angeles County\'s most vulnerable populations and reflects the broader civic challenge of making public institutions more effective, accountable, and responsive.\n\nPath conducted a functional policy analysis of LACDA\'s CoC and CAS operations, compared outcomes with successful models in Chicago, Maricopa County, Miami-Dade County, and Denver, and developed evidence-based recommendations to increase program efficiency and utilization. Our report proposed two major reforms: implementing a Proactive Engagement Program to connect at-risk individuals earlier in the process, and establishing centralized oversight of HMIS data to improve consistency and transparency. Together, these recommendations strengthen LACDA\'s capacity to deliver housing more efficiently and exemplify civic engagement in action, leveraging research and institutional collaboration to improve how government systems serve their communities.',
+          impact: 'Major system reform recommendations adopted',
+          domain: 'Housing Policy'
+        },
+        {
+          year: 'Spring 2025',
           title: 'Transit Infrastructure Assessment',
-          client: 'San Gabriel Valley COG',
+          client: 'San Gabriel Valley Council of Governments',
           description: 'Pre-Olympic cost analysis for Bus Rapid Transit expansion. Identified significant budget discrepancies and developed revised financial models for regional transportation planning.',
+          fullDescription: 'Path worked with the San Gabriel Valley Council of Governments (SGVCOG) to update cost estimates for the Jump Start BRT Projects, near-term transit improvements from the February 2024 Transit Feasibility Study. With dedicated bus lanes, transit signal priority upgrades, and shelters planned before the 2028 Olympics, accurate budgeting was critical.\n\nWe analyzed the feasibility study\'s estimates, compared them with similar California BRT projects, broke costs down by segment, and adjusted for inflation. Our analysis found projected costs 26–31% higher than initially estimated, signaling the need for closer review of bids and contingencies. The project engaged SGVCOG and Metro, improved understanding of public transit funding and planning, and highlighted the role of infrastructure investment in advancing equitable, accessible mobility.',
           impact: '26-31% cost variance correction, improved fiscal accuracy',
           domain: 'Infrastructure'
         }
@@ -529,13 +552,9 @@
                   </div>
 
                   <div className="bg-stone-50 p-8 border border-stone-200">
-                    <h3 className="font-display text-xl font-semibold mb-4">Our Approach</h3>
+                    <h3 className="font-display text-xl font-semibold mb-4">Our Mission</h3>
                     <p className="text-stone-700 leading-relaxed">
-                      We work to build resilient, participatory local institutions that ensure
-                      democracy remains a living, collective practice. Through research, policy
-                      analysis, and strategic recommendations, we help institutions tackle pressing
-                      civic challenges—from housing and homelessness to election administration
-                      and public transit planning.
+                      Our mission is to build resilient, participatory local institutions that ensure democracy remains a living, collective practice rather than a delegated function at the federal level. We work to increase the capacity of local governments and civic organizations to respond effectively to community needs, expand access to public services, and engage residents in decision-making processes. By connecting student consultants with local leaders, we translate research into actionable strategies that strengthen civic institutions and empower communities.
                     </p>
                   </div>
 
@@ -591,10 +610,16 @@
                         <p className="text-stone-700 leading-relaxed max-w-3xl">
                           {project.description}
                         </p>
-                        <div className="pt-2 border-t border-stone-200">
+                        <div className="pt-2 border-t border-stone-200 space-y-3">
                           <div className="text-sm font-medium text-stone-900">
                             {project.impact}
                           </div>
+                          <button
+                            onClick={() => setSelectedProject(project)}
+                            className="text-sm font-medium text-maroon hover:text-maroon-dark transition-colors link-underline"
+                          >
+                            Read More →
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -730,6 +755,64 @@
               </div>
             </div>
           </footer>
+
+          {/* Project Modal */}
+          {selectedProject && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900 bg-opacity-75 backdrop-blur-sm"
+              onClick={() => setSelectedProject(null)}
+            >
+              <div
+                className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="sticky top-0 bg-white border-b border-stone-200 px-8 py-6 flex justify-between items-start">
+                  <div className="flex-1 pr-8">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-mono text-xs text-stone-500 tracking-wider">
+                        {selectedProject.year}
+                      </span>
+                      <span className="inline-block px-3 py-1 bg-maroon bg-opacity-10 text-maroon text-xs font-medium tracking-wide">
+                        {selectedProject.domain}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-3xl font-bold text-stone-900 mb-2">
+                      {selectedProject.title}
+                    </h3>
+                    <div className="text-sm text-stone-500 font-medium">
+                      {selectedProject.client}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="text-stone-400 hover:text-stone-900 transition-colors flex-shrink-0"
+                    aria-label="Close modal"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div className="px-8 py-8">
+                  <div className="prose prose-lg max-w-none">
+                    {selectedProject.fullDescription.split('\n\n').map((paragraph, idx) => (
+                      <p key={idx} className="text-stone-700 leading-relaxed mb-6">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-stone-200">
+                    <div className="text-sm font-semibold text-stone-900 mb-2">Impact</div>
+                    <div className="text-stone-700">
+                      {selectedProject.impact}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       );
     }
