@@ -281,44 +281,63 @@
         { id: 'contact', label: 'Contact' }
       ];
 
-      const metrics = [
-        { value: 'Since 2022', label: 'Building democratic infrastructure' },
-        { value: '4 Projects', label: 'Active civic partnerships' },
-        { value: '∞', label: 'Commitment to local impact' }
-      ];
 
       const projects = [
         {
-          year: '2024',
-          title: 'Election Systems Analysis',
-          client: 'Claremont City Council',
-          description: 'Comprehensive investigation into uncontested elections following district voting reform. Identified 20%+ decline in electoral competition and developed actionable policy frameworks for increasing civic participation.',
-          impact: 'Policy recommendations adopted by city leadership',
-          domain: 'Electoral Systems'
+          year: '2024-Present',
+          title: 'LA Chamber of Commerce',
+          client: 'Los Angeles Chamber of Commerce',
+          description: 'Strategic consulting and policy research supporting regional business and economic development initiatives across Los Angeles County.',
+          impact: 'Ongoing partnership',
+          domain: 'Economic Development'
         },
         {
-          year: '2024',
-          title: 'Supportive Housing Advocacy',
-          client: 'Touchstone Mental Health',
-          description: 'Strategic advocacy framework for supportive housing development in Minnesota. Navigated community resistance through evidence-based policy analysis and stakeholder engagement protocols.',
-          impact: 'Community approval secured, project greenlit',
-          domain: 'Housing Policy'
+          year: '2024-Present',
+          title: 'Kevin Volk AZ',
+          client: 'Kevin Volk Campaign',
+          description: 'Campaign strategy and policy research for Arizona state election, focusing on local governance and community engagement.',
+          impact: 'Active engagement',
+          domain: 'Campaign Strategy'
         },
         {
-          year: '2023',
-          title: 'Tiny Homes Initiative',
-          client: 'Office of the Mayor, Claremont',
-          description: 'Feasibility study examining tiny homes as transitional housing solution. Analyzed state funding mechanisms, regulatory frameworks, and success metrics from existing programs.',
-          impact: '40% permanent housing transition rate identified',
-          domain: 'Homelessness'
+          year: '2024-Present',
+          title: 'E-tainable',
+          client: 'E-tainable',
+          description: 'Sustainability consulting and policy development for environmental initiatives and sustainable business practices.',
+          impact: 'Current project',
+          domain: 'Sustainability'
         },
         {
-          year: '2023',
-          title: 'Transit Infrastructure Assessment',
-          client: 'San Gabriel Valley COG',
-          description: 'Pre-Olympic cost analysis for Bus Rapid Transit expansion. Identified significant budget discrepancies and developed revised financial models for regional transportation planning.',
-          impact: '26-31% cost variance correction, improved fiscal accuracy',
-          domain: 'Infrastructure'
+          year: '2024-Present',
+          title: 'LARC',
+          client: 'Los Angeles Regional Collaborative',
+          description: 'Regional planning and policy analysis supporting collaborative governance initiatives across the Los Angeles region.',
+          impact: 'Partnership in progress',
+          domain: 'Regional Planning'
+        },
+        {
+          year: '2024-Present',
+          title: 'The Healthy Earth Org',
+          client: 'The Healthy Earth Organization',
+          description: 'Environmental policy research and strategic planning for public health and environmental justice initiatives.',
+          impact: 'Ongoing collaboration',
+          domain: 'Environmental Health'
+        },
+        {
+          year: '2024-Present',
+          title: 'ARC',
+          client: 'ARC',
+          description: 'Community development and civic infrastructure projects supporting local organizations and regional initiatives.',
+          impact: 'Active project',
+          domain: 'Community Development'
+        },
+        {
+          year: '2024-Present',
+          title: 'Rails To Trails',
+          client: 'Rails to Trails Conservancy',
+          description: 'Infrastructure planning and policy analysis for trail development, active transportation, and community connectivity projects.',
+          impact: 'Current engagement',
+          domain: 'Infrastructure & Transportation'
         }
       ];
 
@@ -426,26 +445,30 @@
           {/* Hero Section */}
           <section id="home" className="relative min-h-screen flex items-center pt-20 noise-overlay">
             <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24">
-              <div className="grid lg:grid-cols-12 gap-12 items-center">
-                <div className="lg:col-span-7">
+              <div className="flex items-center justify-center">
+                <div className="max-w-4xl text-center">
                   <div className="space-y-8">
+                    <div className="font-display text-6xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight mb-6">
+                      Path Consulting
+                    </div>
+
                     <div className="font-mono text-xs tracking-widest text-maroon uppercase">
                       Claremont McKenna College
                     </div>
 
-                    <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight">
+                    <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mt-8">
                       Strengthening<br/>
                       <span className="text-gradient">Local Democracy</span>
                     </h1>
 
-                    <div className="max-w-xl">
+                    <div className="max-w-2xl mx-auto">
                       <p className="text-xl text-stone-600 leading-relaxed">
                         A student-led consulting practice partnering with civic institutions,
                         local governments, and community organizations to build resilient democratic infrastructure.
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-4 pt-4">
+                    <div className="flex flex-wrap gap-4 pt-4 justify-center">
                       <button
                         onClick={() => scrollToSection('work')}
                         className="bg-maroon text-white px-8 py-4 text-sm font-medium tracking-wide hover:bg-maroon-dark transition-colors"
@@ -459,25 +482,6 @@
                         Learn More
                       </button>
                     </div>
-                  </div>
-                </div>
-
-                <div className="lg:col-span-5">
-                  <div className="grid grid-cols-1 gap-6">
-                    {metrics.map((metric, index) => (
-                      <div
-                        key={index}
-                        className="border-l-2 border-maroon pl-6 py-4 bg-white"
-                        style={{ animationDelay: `${index * 100}ms` }}
-                      >
-                        <div className="font-display text-3xl font-bold text-stone-900 stat-display mb-2">
-                          {metric.value}
-                        </div>
-                        <div className="text-sm text-stone-600 leading-relaxed">
-                          {metric.label}
-                        </div>
-                      </div>
-                    ))}
                   </div>
                 </div>
               </div>
