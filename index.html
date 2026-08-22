@@ -110,9 +110,45 @@ a{color:inherit}
   .masthead__nav a{font-size:.625rem;letter-spacing:.08em}
 }
 
-@media (max-width:34em){
-  .masthead__nav a[data-hide]{display:none}
+.navtoggle{
+  display:none;align-items:center;
+  background:none;border:1px solid var(--rule);
+  padding:.4375rem .75rem;
+  font-family:var(--mono);font-size:.6875rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+  cursor:pointer;
 }
+
+.navtoggle:hover{border-color:var(--seal);color:var(--seal)}
+
+@media (max-width:34em){
+  .masthead__nav{display:none}
+  .navtoggle{display:inline-flex}
+}
+
+.mobile-nav{
+  position:absolute;top:100%;left:0;right:0;z-index:30;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+  padding:.25rem var(--gut) 1rem;
+}
+
+.mobile-nav[hidden]{display:none}
+
+@media (min-width:34em){
+  .mobile-nav{display:none}
+}
+
+.mobile-nav__list{margin:0;padding:0;list-style:none}
+
+.mobile-nav__list a{
+  display:block;padding:.875rem 0;
+  font-family:var(--serif);font-size:1.25rem;font-weight:500;
+  letter-spacing:-.01em;text-decoration:none;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);
+}
+
+.mobile-nav__list li:last-child a{border-bottom:0}
+.mobile-nav__list a:hover{color:var(--seal)}
 
 /* ---------- hero ---------- */
 
@@ -444,10 +480,21 @@ a{color:inherit}
       Path Consulting
     </a>
     <nav class="masthead__nav" aria-label="Main">
-      <a href="#projects" data-hide>Projects</a>
+      <a href="#projects">Projects</a>
       <a href="#clients">For Clients</a>
       <a href="#students">For Students</a>
       <a class="navbtn" href="mailto:acarriero28@students.claremontmckenna.edu">Contact</a>
+    </nav>
+    <button type="button" class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <nav aria-label="Mobile">
+      <ul class="mobile-nav__list">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#clients">For Clients</a></li>
+        <li><a href="#students">For Students</a></li>
+        <li><a href="mailto:acarriero28@students.claremontmckenna.edu">Contact</a></li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -1007,6 +1054,58 @@ a{color:inherit}
 
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
+
+  var navToggle = document.getElementById('navtoggle');
+  var mobileNav = document.getElementById('mobile-nav');
+
+  if (navToggle && mobileNav) {
+    var mobileLinks = Array.prototype.slice.call(mobileNav.querySelectorAll('a'));
+
+    var onMenuKeydown = function (e) {
+      if (e.key === 'Escape') {
+        closeMenu(true);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      var focusables = [navToggle].concat(mobileLinks);
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    function openMenu() {
+      mobileNav.hidden = false;
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.textContent = 'Close';
+      document.addEventListener('keydown', onMenuKeydown);
+      if (mobileLinks.length) mobileLinks[0].focus();
+    }
+
+    function closeMenu(returnFocus) {
+      mobileNav.hidden = true;
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.textContent = 'Menu';
+      document.removeEventListener('keydown', onMenuKeydown);
+      if (returnFocus) navToggle.focus();
+    }
+
+    navToggle.addEventListener('click', function () {
+      if (mobileNav.hidden) openMenu();
+      else closeMenu(false);
+    });
+
+    mobileLinks.forEach(function (a) {
+      a.addEventListener('click', function () { closeMenu(false); });
+    });
+
+    window.addEventListener('hashchange', function () { closeMenu(false); });
+  }
 
   ['.docket', '.drops'].forEach(function (sel) {
     document.querySelectorAll(sel).forEach(function (group) {
