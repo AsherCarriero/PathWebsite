@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Path Consulting — Claremont McKenna College</title>
 
-<meta name="description" content="Path Consulting is a student-run consulting group at Claremont McKenna College. We provide research, policy analysis, and strategic recommendations to local governments, public agencies, and nonprofits at no cost.">
+<meta name="description" content="Path Consulting is a student-run consulting group at Claremont McKenna College providing research and policy analysis to local governments, public agencies, and nonprofits at no cost.">
 <link rel="canonical" href="https://www.cmcpath.com/">
-<link rel="icon" href="/pathLogo.png" type="image/png">
-<link rel="apple-touch-icon" href="/pathLogo.png">
+<link rel="icon" href="pathLogo.png" type="image/png">
+<link rel="apple-touch-icon" href="pathLogo.png">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Path Consulting">
@@ -25,9 +25,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
+<script>document.documentElement.className = document.documentElement.className.replace('no-js','');</script>
+
 <style>
 :root{
-  /* stone + maroon, carried over from the existing site */
   --paper:#fafaf9;
   --leaf:#f5f5f4;
   --ink:#1c1917;
@@ -38,7 +39,7 @@
   --seal-dark:#5a0016;
   --seal-light:#a0002a;
 
-  --doc:68rem;
+  --doc:70rem;
   --gut:clamp(1.25rem,4vw,3.5rem);
 
   --mono:"IBM Plex Mono",ui-monospace,monospace;
@@ -50,12 +51,8 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--sans);
-  font-size:1rem;
-  line-height:1.6;
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:1rem;line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 
@@ -66,33 +63,25 @@ a{color:inherit}
 .shell{max-width:var(--doc);margin:0 auto;padding:0 var(--gut)}
 
 .label{
-  font-family:var(--mono);
-  font-size:.6875rem;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--ink-soft);
+  font-family:var(--mono);font-size:.6875rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
 }
 
 /* ---------- masthead ---------- */
 
 .masthead{
-  position:sticky;top:0;z-index:20;
-  background:var(--paper);
-  border-top:4px solid var(--seal);
-  border-bottom:1px solid var(--rule);
+  position:sticky;top:0;z-index:20;background:var(--paper);
+  border-top:4px solid var(--seal);border-bottom:1px solid var(--rule);
 }
 
 .masthead__inner{
-  max-width:var(--doc);margin:0 auto;
-  padding:.75rem var(--gut);
+  max-width:var(--doc);margin:0 auto;padding:.75rem var(--gut);
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
 }
 
 .wordmark{
-  display:flex;align-items:center;gap:.625rem;
-  text-decoration:none;
-  font-family:var(--serif);
-  font-size:1.125rem;font-weight:600;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:.625rem;text-decoration:none;
+  font-family:var(--serif);font-size:1.125rem;font-weight:600;letter-spacing:-.01em;
 }
 
 .wordmark img{height:1.5rem;width:auto;display:block}
@@ -100,353 +89,333 @@ a{color:inherit}
 .masthead__nav{display:flex;align-items:center;gap:1.5rem}
 
 .masthead__nav a{
-  font-family:var(--mono);
-  font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;
+  font-family:var(--mono);font-size:.6875rem;
+  letter-spacing:.14em;text-transform:uppercase;
   text-decoration:none;color:var(--ink-soft);
-  padding:.25rem 0;
-  border-bottom:1px solid transparent;
+  padding:.25rem 0;border-bottom:1px solid transparent;
   transition:color .2s,border-color .2s;
 }
 
 .masthead__nav a:hover{color:var(--ink);border-bottom-color:var(--seal)}
+.masthead__nav a[aria-current="page"]{color:var(--seal);border-bottom-color:var(--seal)}
 
-@media (max-width:47.99em){
-  .masthead__nav{gap:1rem}
-  .masthead__nav a{font-size:.625rem;letter-spacing:.1em}
+.masthead__nav .navbtn{
+  background:var(--seal);color:var(--paper);
+  padding:.5rem .875rem;border-bottom:0;
+}
+.masthead__nav .navbtn:hover{background:var(--seal-dark);color:var(--paper);border-bottom-color:transparent}
+
+@media (max-width:52em){
+  .masthead__nav{gap:.875rem}
+  .masthead__nav a{font-size:.625rem;letter-spacing:.08em}
 }
 
-@media (max-width:33em){
-  .masthead__nav a[data-optional]{display:none}
+@media (max-width:34em){
+  .masthead__nav a[data-hide]{display:none}
 }
 
-/* ---------- intro ---------- */
+/* ---------- hero ---------- */
 
-.intro{padding:clamp(2.5rem,7vw,5rem) 0 clamp(2.5rem,6vw,4rem)}
+.hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2rem,4vw,3rem)}
 
-.intro__logo{
-  height:clamp(3.25rem,7vw,4.5rem);
-  width:auto;
-  display:block;
-  margin-bottom:1.75rem;
+.hero__logo{height:clamp(3rem,6vw,4rem);width:auto;display:block;margin-bottom:1.75rem}
+
+.hero__eyebrow{
+  font-family:var(--mono);font-size:.75rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--seal);
+  margin:0 0 .75rem;
 }
 
-.intro__name{
-  margin:0;
-  font-family:var(--serif);
+.hero h1{
+  margin:0;font-family:var(--serif);
   font-size:clamp(2.5rem,7vw,4.5rem);
-  line-height:1.02;
-  letter-spacing:-.03em;
-  font-weight:500;
+  line-height:1.02;letter-spacing:-.03em;font-weight:500;
 }
 
-.intro__where{
-  margin:.875rem 0 0;
-  font-family:var(--mono);
-  font-size:.75rem;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--seal);
-}
-
-.intro__text{
-  margin:2rem 0 0;
-  max-width:54ch;
-  font-family:var(--serif);
-  font-size:clamp(1.1875rem,2.4vw,1.5rem);
+.hero__sub{
+  margin:1.5rem 0 0;max-width:52ch;
+  font-family:var(--serif);font-size:clamp(1.125rem,2.2vw,1.4375rem);
   line-height:1.45;
 }
 
-.intro__paths{
-  margin-top:2.5rem;
-  border-top:3px solid var(--seal);
-  display:grid;
-  grid-template-columns:1fr;
+/* ---------- recruiting banner ---------- */
+
+.banner{
+  background:var(--seal);color:var(--paper);
+  padding:clamp(2rem,4vw,2.75rem) 0;
 }
 
-@media (min-width:48em){
-  .intro__paths{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .intro__paths a + a{border-left:1px solid var(--rule)}
+.banner .label{color:#e3b9c2}
+
+.banner h2{
+  margin:.5rem 0 0;font-family:var(--serif);
+  font-size:clamp(1.5rem,3.4vw,2.125rem);
+  line-height:1.15;letter-spacing:-.02em;font-weight:500;
 }
 
-.intro__paths a{
-  display:block;
-  text-decoration:none;
-  padding:1.5rem 0;
-  border-bottom:1px solid var(--rule);
-  transition:padding-left .25s ease;
+.banner__grid{
+  margin-top:1.5rem;display:grid;grid-template-columns:1fr;gap:1.5rem;
+  align-items:end;
 }
 
-@media (min-width:48em){
-  .intro__paths a + a{padding-left:2rem}
-  .intro__paths a:hover{padding-left:1rem}
-  .intro__paths a + a:hover{padding-left:3rem}
+@media (min-width:52em){
+  .banner__grid{grid-template-columns:minmax(0,1fr) auto;gap:3rem}
 }
 
-.intro__paths .label{display:block;margin-bottom:.5rem;color:var(--seal)}
-.intro__paths a:hover span:last-child{color:var(--seal);border-bottom-color:var(--seal)}
+.banner__facts{margin:0;display:grid;gap:.5rem}
+.banner__facts div{display:flex;gap:.75rem;flex-wrap:wrap}
+.banner__facts dt{font-family:var(--mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#e3b9c2;min-width:8rem}
+.banner__facts dd{margin:0;font-size:1rem;overflow-wrap:anywhere}
+.banner__facts a{color:inherit;border-bottom:1px solid rgba(250,250,249,.4);text-decoration:none}
+.banner__facts a:hover{border-bottom-color:var(--paper)}
 
-.intro__paths span:last-child{
-  font-family:var(--serif);
-  font-size:1.1875rem;
-  border-bottom:1px solid var(--rule);
-  padding-bottom:.1rem;
+.banner__cta{
+  display:inline-block;background:var(--paper);color:var(--seal);
+  text-decoration:none;font-family:var(--mono);
+  font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.9375rem 1.75rem;white-space:nowrap;
+  transition:background .2s,color .2s;
 }
+.banner__cta:hover{background:var(--ink);color:var(--paper)}
 
 /* ---------- sections ---------- */
 
-.section{padding:clamp(3rem,7vw,5rem) 0}
+.section{padding:clamp(2.75rem,6vw,4.5rem) 0}
 .section--leaf{background:var(--leaf);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.section--tight{padding-top:0}
 
-.section__head{margin-bottom:2.25rem}
+.section__head{margin-bottom:1.75rem;max-width:60ch}
 .section__head .label{color:var(--seal)}
 
 .section__title{
-  margin:.4rem 0 0;
-  font-family:var(--serif);
+  margin:.4rem 0 0;font-family:var(--serif);
   font-size:clamp(1.5rem,3.2vw,2.125rem);
-  line-height:1.15;
-  letter-spacing:-.015em;
-  font-weight:500;
+  line-height:1.15;letter-spacing:-.015em;font-weight:500;
 }
 
-.prose{max-width:62ch}
-.prose p{margin:0 0 1.125rem}
-.prose p:last-child{margin-bottom:0}
-.prose strong{font-weight:600}
+.section__intro{margin:1rem 0 0;max-width:58ch;color:var(--ink-soft)}
 
-.split{display:grid;grid-template-columns:1fr;gap:2.5rem}
+.prose{max-width:58ch}
+.prose p{margin:0 0 1rem}
+.prose p:last-child{margin-bottom:0}
+
+.split{display:grid;grid-template-columns:1fr;gap:2rem}
+@media (min-width:56em){.split{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:3.5rem}}
+
+/* ---------- reason rows (no cards) ---------- */
+
+.reasons{border-top:1px solid var(--rule)}
+
+.reasons__item{
+  border-bottom:1px solid var(--rule-soft);
+  padding:1.375rem 0;
+  display:grid;grid-template-columns:1fr;gap:.375rem;
+}
+
+@media (min-width:52em){
+  .reasons__item{grid-template-columns:minmax(0,16rem) minmax(0,1fr);gap:2.5rem;align-items:baseline}
+}
+
+.reasons__item h3{
+  margin:0;font-family:var(--serif);font-size:1.1875rem;
+  font-weight:500;letter-spacing:-.01em;line-height:1.3;
+}
+
+.reasons__item p{margin:0;color:var(--ink-soft);max-width:58ch}
+
+/* ---------- feature blocks with images ---------- */
+
+.feature{
+  display:grid;grid-template-columns:1fr;gap:1.5rem;
+  padding:clamp(1.75rem,3.5vw,2.5rem) 0;
+  border-bottom:1px solid var(--rule-soft);
+}
+
+.feature:first-of-type{border-top:1px solid var(--rule)}
 
 @media (min-width:56em){
-  .split{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:4rem}
+  .feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3.5rem;align-items:center}
+  .feature--flip .feature__media{order:-1}
 }
 
-/* ---------- plain lists ---------- */
+.feature h3{
+  margin:0 0 .75rem;font-family:var(--serif);
+  font-size:1.375rem;font-weight:500;letter-spacing:-.015em;line-height:1.2;
+}
+
+.feature p{margin:0;color:var(--ink-soft);max-width:52ch}
+
+.feature__media{margin:0}
+.feature__media img{width:100%;height:auto;display:block}
+
+.figure-slot{
+  aspect-ratio:4/3;background:var(--leaf);
+  border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:.6875rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+}
+
+.section--leaf .figure-slot{background:var(--paper)}
+
+/* ---------- lists ---------- */
 
 .terms{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.terms li{border-bottom:1px solid var(--rule-soft);padding:.625rem 0;font-size:.9375rem}
 
-.terms li{
-  border-bottom:1px solid var(--rule-soft);
-  padding:.6875rem 0;
-  font-size:.9375rem;
-}
+/* ---------- buttons ---------- */
 
-.pending{
-  margin-top:2.75rem;
-  border-top:3px solid var(--seal);
-  padding-top:1.25rem;
-}
-
-.pending .label{display:block;color:var(--seal);margin-bottom:.625rem}
-
-.pending__note{
-  margin:0;
-  max-width:58ch;
-  font-family:var(--serif);
-  font-size:1.0625rem;
-  line-height:1.5;
-  color:var(--ink-soft);
-}
-
-.steps{margin:0;padding:0;list-style:none;counter-reset:step;border-top:1px solid var(--rule)}
-
-.steps li{
-  counter-increment:step;
-  border-bottom:1px solid var(--rule-soft);
-  padding:1rem 0 1rem 2.75rem;
-  position:relative;
-  font-size:.9375rem;
-}
-
-.steps li::before{
-  content:counter(step);
-  position:absolute;
-  left:0;top:.9rem;
-  width:1.5rem;height:1.5rem;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--seal);
-  color:var(--paper);
-  font-family:var(--mono);
-  font-size:.6875rem;
-}
-
-.steps b{display:block;font-weight:600;margin-bottom:.15rem;font-size:1rem}
-
-
-.formlink{
-  display:inline-block;
-  background:var(--seal);
-  color:var(--paper);
-  text-decoration:none;
-  font-family:var(--mono);
+.action{
+  display:inline-block;background:var(--seal);color:var(--paper);
+  text-decoration:none;font-family:var(--mono);
   font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:.875rem 1.5rem;
-  transition:background .2s;
+  padding:.875rem 1.5rem;margin-top:1.5rem;transition:background .2s;
+}
+.action:hover{background:var(--seal-dark)}
+
+.action__note{margin:.875rem 0 0;font-size:.875rem;color:var(--ink-soft)}
+
+.morelink{
+  display:inline-block;margin-top:1.75rem;
+  font-family:var(--mono);font-size:.75rem;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+  color:var(--seal);border-bottom:1px solid var(--rule);
+  padding-bottom:.15rem;transition:border-color .2s;
+}
+.morelink:hover{border-bottom-color:var(--seal)}
+
+/* ---------- page header ---------- */
+
+.pagehead{padding:clamp(2.5rem,6vw,4rem) 0 clamp(1.5rem,3vw,2.25rem)}
+.pagehead .label{color:var(--seal)}
+
+.pagehead h1{
+  margin:.5rem 0 0;font-family:var(--serif);
+  font-size:clamp(2rem,5vw,3rem);
+  line-height:1.08;letter-spacing:-.025em;font-weight:500;
 }
 
-.formlink:hover{background:var(--seal-dark)}
-
-.formnote{
-  margin:1.125rem 0 0;
-  font-size:.9375rem;
-  color:var(--ink-soft);
-  max-width:40ch;
+.pagehead p{
+  margin:1.125rem 0 0;max-width:52ch;
+  font-family:var(--serif);font-size:1.125rem;line-height:1.5;color:var(--ink-soft);
 }
 
-/* ---------- project records ---------- */
+/* ---------- projects ---------- */
 
 .docket{border-top:3px solid var(--seal)}
 
 .docket__cols{
-  display:none;
-  font-family:var(--mono);
-  font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-soft);
-  padding:.625rem 0;
-  border-bottom:1px solid var(--rule);
+  display:none;font-family:var(--mono);font-size:.625rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+  padding:.625rem 0;border-bottom:1px solid var(--rule);
 }
 
 @media (min-width:56em){
-  .docket__cols{
-    display:grid;
-    grid-template-columns:7rem minmax(0,1fr) minmax(0,1.15fr) 1.75rem;
-    gap:1.5rem;
-  }
+  .docket__cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) 1.75rem;gap:1.5rem}
 }
 
 .record{border-bottom:1px solid var(--rule-soft)}
-.record[open]{background:var(--leaf)}
-.section--leaf .record[open]{background:var(--paper)}
+.record[open]{background:var(--paper)}
 
 .record > summary{
-  list-style:none;cursor:pointer;
-  padding:1.375rem 0;
-  display:grid;
-  grid-template-columns:1fr 1.75rem;
-  gap:.375rem 1.5rem;
-  align-items:start;
-  transition:padding-left .25s ease;
+  list-style:none;cursor:pointer;padding:1.125rem 0;
+  display:grid;grid-template-columns:1fr 1.75rem;gap:.25rem 1.5rem;
+  align-items:start;transition:padding-left .25s ease;
 }
 
 .record > summary::-webkit-details-marker{display:none}
 .record > summary:hover{padding-left:.75rem}
-.record > summary:hover .record__subject{color:var(--seal)}
+.record > summary:hover .record__subject,
 .record[open] .record__subject{color:var(--seal)}
 
 @media (min-width:56em){
-  .record > summary{
-    grid-template-columns:7rem minmax(0,1fr) minmax(0,1.15fr) 1.75rem;
-    align-items:baseline;
-  }
+  .record > summary{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) 1.75rem;align-items:baseline}
 }
 
-.record__term{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--ink-soft)}
-
 .record__subject{
-  font-family:var(--serif);
-  font-size:1.1875rem;line-height:1.3;font-weight:500;letter-spacing:-.01em;
+  font-family:var(--serif);font-size:1.125rem;line-height:1.3;
+  font-weight:500;letter-spacing:-.01em;transition:color .2s;
 }
 
 .record__client{font-size:.9375rem;color:var(--ink-soft);line-height:1.45}
 
 .record__mark{
-  justify-self:end;
-  font-family:var(--mono);font-size:1.125rem;line-height:1;
-  color:var(--seal);
-  grid-row:1;grid-column:2;padding-top:.2rem;
+  justify-self:end;font-family:var(--mono);font-size:1.125rem;line-height:1;
+  color:var(--seal);grid-row:1;grid-column:2;padding-top:.15rem;
 }
 
-@media (min-width:56em){
-  .record__mark{grid-column:4;padding-top:0}
-}
+@media (min-width:56em){.record__mark{grid-column:3;padding-top:0}}
 
 .record__mark::before{content:"+"}
 .record[open] .record__mark::before{content:"\2013"}
 
-.record__body{padding:0 0 2rem;display:grid;grid-template-columns:1fr;gap:1.5rem}
-
-@media (min-width:56em){
-  .record__body{grid-template-columns:7rem minmax(0,1fr);gap:1.5rem}
-  .record__body > .record__aside{grid-column:1}
-  .record__body > .prose{grid-column:2}
-}
-
-.record__aside .label{display:block;margin-bottom:.25rem}
-.record__aside span:last-child{font-size:.875rem}
+.record__body{padding:0 0 1.75rem;max-width:64ch}
+.record__body p{margin:0 0 .875rem}
 
 .record__finding{
-  border-left:2px solid var(--seal);
-  padding-left:1rem;
-  margin-top:1.5rem;
-  font-family:var(--serif);
-  font-size:1.0625rem;line-height:1.45;
+  border-left:2px solid var(--seal);padding-left:1rem;margin:0 !important;
+  font-family:var(--serif);font-size:1.0625rem;line-height:1.45;
 }
+
+.pending{margin-top:2.25rem;border-top:3px solid var(--seal);padding-top:1.125rem}
+.pending .label{display:block;color:var(--seal);margin-bottom:.5rem}
+.pending p{margin:0;max-width:54ch;font-family:var(--serif);font-size:1.0625rem;line-height:1.5;color:var(--ink-soft)}
 
 /* ---------- contact ---------- */
 
-.contact{background:var(--seal);color:var(--paper);padding:clamp(3.5rem,8vw,5.5rem) 0}
-.contact .label{color:#e3b9c2}
+.contact{background:var(--ink);color:var(--paper);padding:clamp(3rem,7vw,4.5rem) 0}
+.contact .label{color:#a8a29e}
 
 .contact__title{
-  margin:.5rem 0 0;
-  font-family:var(--serif);
-  font-size:clamp(1.5rem,3.4vw,2.25rem);
-  line-height:1.15;letter-spacing:-.02em;font-weight:400;
-  max-width:26ch;
+  margin:.5rem 0 0;font-family:var(--serif);
+  font-size:clamp(1.5rem,3.4vw,2.125rem);
+  line-height:1.15;letter-spacing:-.02em;font-weight:400;max-width:24ch;
 }
 
-.contact__grid{margin-top:2.5rem;display:grid;grid-template-columns:1fr;gap:2rem}
+.contact__grid{margin-top:2rem;display:grid;grid-template-columns:1fr;gap:1.75rem}
+@media (min-width:48em){.contact__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 3rem}}
 
-@media (min-width:48em){
-  .contact__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem 3rem}
-}
-
-.contact__grid dt{margin-bottom:.5rem}
-
-.contact__grid dd{
-  margin:0;
-  font-family:var(--serif);
-  font-size:1.125rem;line-height:1.45;
-  overflow-wrap:anywhere;
-}
-
-.contact__grid a{text-decoration:none;border-bottom:1px solid rgba(250,250,249,.35);transition:border-color .2s}
+.contact__grid dt{margin-bottom:.4rem}
+.contact__grid dd{margin:0;font-family:var(--serif);font-size:1.125rem;line-height:1.4;overflow-wrap:anywhere}
+.contact__grid a{text-decoration:none;border-bottom:1px solid #57534e;transition:border-color .2s}
 .contact__grid a:hover{border-bottom-color:var(--paper)}
 .contact :focus-visible{outline-color:var(--paper)}
 
 .contact__cta{
-  display:inline-block;
-  margin-top:2.75rem;
-  background:var(--paper);
-  color:var(--seal);
-  text-decoration:none;
-  font-family:var(--mono);
-  font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:.9375rem 1.75rem;
-  transition:background .2s,color .2s;
+  display:inline-block;margin-top:2.25rem;
+  background:var(--paper);color:var(--ink);text-decoration:none;
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.9375rem 1.75rem;transition:background .2s,color .2s;
 }
-
-.contact__cta:hover{background:var(--ink);color:var(--paper)}
+.contact__cta:hover{background:var(--seal);color:var(--paper)}
 
 /* ---------- colophon ---------- */
 
 .colophon{
   background:var(--seal-dark);color:#d8b3bc;
   border-top:1px solid rgba(250,250,249,.15);
-  padding:1.75rem 0;
-  font-family:var(--mono);
+  padding:1.5rem 0;font-family:var(--mono);
   font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;
 }
 
 .colophon__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-
-.colophon__mark{display:flex;align-items:center;gap:.625rem}
+.colophon__mark{display:flex;align-items:center;gap:.625rem;text-decoration:none}
 .colophon__mark img{height:1.25rem;width:auto;display:block;opacity:.65}
+.colophon__links{display:flex;gap:1.25rem}
+.colophon__links a{text-decoration:none;opacity:.8}
+.colophon__links a:hover{opacity:1;color:var(--paper)}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{transition-duration:.01ms !important}
-  .record > summary:hover,.intro__paths a:hover{padding-left:0}
+  .record > summary:hover{padding-left:0}
 }
+
+/* ---------- single-file router ---------- */
+.page{display:none}
+.page.is-active{display:block}
+.no-js .page{display:block}
+
 </style>
 </head>
 
@@ -454,107 +423,57 @@ a{color:inherit}
 
 <header class="masthead">
   <div class="masthead__inner">
-    <a class="wordmark" href="#top">
+    <a class="wordmark" href="#home">
       <img src="pathLogo.png" alt="">
       Path Consulting
     </a>
-    <nav class="masthead__nav" aria-label="Sections">
-      <a href="#about" data-optional>About</a>
-      <a href="#projects">Projects</a>
-      <a href="#students">Students</a>
-      <a href="#contact">Contact</a>
+    <nav class="masthead__nav" aria-label="Main">
+      <a href="#projects" data-hide>Projects</a>
+      <a href="#clients">For Clients</a>
+      <a href="#students">For Students</a>
+      <a class="navbtn" href="mailto:acarriero28@students.claremontmckenna.edu">Contact</a>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main>
 
-  <section class="intro shell">
-    <img class="intro__logo" src="pathLogo.png" alt="Path Consulting">
-    <h1 class="intro__name">Path Consulting</h1>
-    <p class="intro__where">Claremont McKenna College</p>
+<!-- ============ HOME ============ -->
+<section class="page" id="home">
 
-    <p class="intro__text">Path Consulting is a student-run consulting group at Claremont McKenna College. We provide research, policy analysis, and strategic recommendations to local governments, public agencies, and nonprofits. All of our work is done on a volunteer basis at no cost to the client.</p>
+  <div class="hero shell">
+    <img class="hero__logo" src="pathLogo.png" alt="Path Consulting">
+    <p class="hero__eyebrow">Claremont McKenna College</p>
+    <h1>Path Consulting</h1>
+    <p class="hero__sub">A student-run consulting group providing research and policy analysis to local governments, public agencies, and nonprofits. All of our work is volunteer and free of charge.</p>
+  </div>
 
-    <div class="intro__paths">
-      <a href="#organizations">
-        <span class="label">Organizations</span>
-        <span>How to work with us</span>
-      </a>
-      <a href="#students">
-        <span class="label">Students</span>
-        <span>How to join</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="section section--leaf" id="about">
+  <div class="section section--leaf">
     <div class="shell">
-      <div class="section__head">
-        <span class="label">About</span>
-        <h2 class="section__title">What Path is</h2>
-      </div>
-
-      <div class="split">
-        <div class="prose">
-          <p>Path Consulting is an undergraduate organization at Claremont McKenna College. Each semester we assemble teams of students, match each team to a partner organization, and spend the semester producing a research deliverable for that partner. Teams are supervised by the club's leadership throughout.</p>
-          <p>We work with city governments, regional agencies, school districts, elected officials, and nonprofits. Most of our partners are in Los Angeles County and the San Gabriel Valley, though we have worked with organizations in other states.</p>
-          <p>Our aim is to increase the capacity of local institutions to respond to community needs, and to give students practical experience with the research and analysis that public work actually requires. Both halves matter. A project that teaches students nothing is not worth running, and a project that produces nothing useful for the partner is not worth their time.</p>
-        </div>
-
+      <div class="feature">
         <div>
-          <span class="label" style="display:block;margin-bottom:.75rem">Areas of work</span>
-          <ul class="terms">
-            <li>Housing and homelessness policy</li>
-            <li>Electoral systems and administration</li>
-            <li>Public transit and infrastructure</li>
-            <li>Ballot measures and legislative tracking</li>
-            <li>Program evaluation</li>
-            <li>Comparative policy research</li>
-            <li>Community and stakeholder engagement</li>
-          </ul>
+          <h3>For clients</h3>
+          <p>A team of students takes on one defined project for your organization and delivers a finished research product by the end of the semester. No cost, no contract, and about two hours of your staff's time.</p>
+          <a class="action" href="#clients">Work with Path</a>
+        </div>
+        <div>
+          <h3>For students</h3>
+          <p>We recruit across all five Claremont Colleges at the start of every semester. Members work on one client engagement, interview practitioners and public officials, and present to the client.</p>
+          <a class="action" href="#students">Join Path</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="organizations">
-    <div class="shell">
-      <div class="section__head">
-        <span class="label">Organizations</span>
-        <h2 class="section__title">Working with Path</h2>
-      </div>
-
-      <div class="split">
-        <div class="prose">
-          <p>A Path engagement runs the length of an academic semester. We scope the project with you before the semester begins, check in on an agreed schedule while the work is underway, and deliver a finished product before the semester ends. Most partners spend about an hour with us at the start and an hour at the end, plus whatever interim check-ins are useful.</p>
-          <p>Typical deliverables include research reports, policy memos, comparative studies of how other jurisdictions handled a problem, cost and program evaluations, tracking spreadsheets, and materials intended for a council, a board, or the public.</p>
-          <p>There is no cost, no contract, and no procurement process. We do not do legal or engineering work and we are not a substitute for licensed professional services. If you are unsure whether something fits, ask. We would rather scope around what your staff is short-handed on than propose a project from the outside.</p>
-        </div>
-
-        <div>
-          <span class="label" style="display:block;margin-bottom:.75rem">Getting started</span>
-          <ol class="steps">
-            <li><b>Get in touch</b>Email the address below with a rough sense of what you need, or ask us to suggest something.</li>
-            <li><b>Scoping call</b>Twenty to thirty minutes to define the question and the deliverable.</li>
-            <li><b>Semester of work</b>A team is assigned and the project runs with scheduled check-ins.</li>
-            <li><b>Delivery</b>You receive the finished product and a walkthrough if you want one.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--leaf" id="projects">
+  <div class="section">
     <div class="shell">
       <div class="section__head">
         <span class="label">Projects</span>
-        <h2 class="section__title">Completed work</h2>
+        <h2 class="section__title">A few things we have worked on</h2>
       </div>
 
       <div class="docket">
         <div class="docket__cols" aria-hidden="true">
-          <span>Term</span>
           <span>Client</span>
           <span>Subject</span>
           <span></span>
@@ -562,120 +481,369 @@ a{color:inherit}
 
         <details class="record">
           <summary>
-            <span class="record__term">Fall 2024</span>
-            <span class="record__client">Claremont Mayor Pro Tem Corey Calaycay</span>
-            <span class="record__subject">Uncontested elections after district voting reform</span>
-            <span class="record__mark" aria-hidden="true"></span>
-          </summary>
-          <div class="record__body">
-            <div class="record__aside"><span class="label">Area</span><span>Electoral systems</span></div>
-            <div class="prose">
-              <p>As California cities moved from at-large to district-based voting to comply with the California Voting Rights Act, Claremont wanted to know whether the change was reducing the number of contested races. Mayor Pro Tem Corey Calaycay asked us to look.</p>
-              <p>We built a comparative dataset of 21 small California cities and tracked election outcomes before and after each city's transition. Contested races fell by more than 20 percent, appointments to vacant seats more than doubled, and canceled elections rose sharply. Smaller candidate pools inside single districts appear to be the mechanism. We delivered the analysis with options for the city to consider on candidate recruitment and filing.</p>
-              <p class="record__finding">Contested races fell more than 20 percent across the cities studied. Appointments to vacant seats more than doubled.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="record">
-          <summary>
-            <span class="record__term">Fall 2024</span>
-            <span class="record__client">Touchstone Mental Health</span>
-            <span class="record__subject">Zoning and community barriers to supportive housing</span>
-            <span class="record__mark" aria-hidden="true"></span>
-          </summary>
-          <div class="record__body">
-            <div class="record__aside"><span class="label">Area</span><span>Housing policy</span></div>
-            <div class="prose">
-              <p>Local opposition had stalled Touchstone's Lincoln on the Creek supportive housing project in Edina, Minnesota. Touchstone asked us to examine how stigma and zoning restrictions block supportive housing statewide, and what could be done about both.</p>
-              <p>We produced a comparative analysis of legislation similar to Minnesota's SF-1370, public outreach materials including an op-ed and a brochure, a proposal for a virtual facilities tour to make the buildings legible to neighbors before they are built, and an interview series putting residents' experience in front of the public.</p>
-              <p class="record__finding">Delivered a legislative comparison and a public engagement package built for use in front of a planning commission.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="record">
-          <summary>
-            <span class="record__term">Fall 2024</span>
-            <span class="record__client">Claremont Mayor Sal Medina</span>
-            <span class="record__subject">Tiny homes as transitional housing</span>
-            <span class="record__mark" aria-hidden="true"></span>
-          </summary>
-          <div class="record__body">
-            <div class="record__aside"><span class="label">Area</span><span>Homelessness</span></div>
-            <div class="prose">
-              <p>Homelessness in Claremont had roughly doubled since 2020 against limited shelter capacity. Mayor Sal Medina asked whether a tiny homes village was a realistic option for the city.</p>
-              <p>We delivered a research report, a public-facing article, and a funding roadmap to the Mayor and the City Council. The work drew on interviews with unhoused residents, cost analysis, and case studies of programs in Tacoma and Santa Clara. It identified California's Homekey and HHAP programs as the viable funding routes for a Claremont pilot.</p>
-              <p class="record__finding">Comparable tiny home programs moved up to 40 percent of residents into permanent housing, outperforming traditional shelter.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="record">
-          <summary>
-            <span class="record__term">Spring 2025</span>
-            <span class="record__client">Claremont Unified School District, Board President Kathryn Dunn</span>
-            <span class="record__subject">Why a special election cost twice its estimate</span>
-            <span class="record__mark" aria-hidden="true"></span>
-          </summary>
-          <div class="record__body">
-            <div class="record__aside"><span class="label">Area</span><span>Election administration</span></div>
-            <div class="prose">
-              <p>The district's 2023 special election cost nearly double the original estimate. Board President Kathryn Dunn asked us to find out why, and whether any of it could be recovered.</p>
-              <p>We examined California election law, county reimbursement mechanisms, and comparable cases in other districts. Special election costs are systematically underestimated at the point of authorization, and the recovery mechanisms that exist are hard for small districts to reach. Our memo set out legislative options to improve cost transparency and reimbursement access. It was shared with Representative Judy Chu's office.</p>
-              <p class="record__finding">Cost underestimation is structural, not local. Small districts face the highest barriers to recovering funds.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="record">
-          <summary>
-            <span class="record__term">Spring 2025</span>
             <span class="record__client">Los Angeles County Development Authority</span>
             <span class="record__subject">Continuum of Care and Coordinated Access System evaluation</span>
             <span class="record__mark" aria-hidden="true"></span>
           </summary>
           <div class="record__body">
-            <div class="record__aside"><span class="label">Area</span><span>Housing policy</span></div>
-            <div class="prose">
-              <p>LACDA asked us to evaluate its Continuum of Care and Coordinated Access System, the infrastructure that moves people from the street into housing across Los Angeles County, with attention to how the agency coordinates with Public Housing Authorities.</p>
-              <p>We ran a functional analysis of both systems and compared outcomes against Chicago, Maricopa County, Miami-Dade County, and Denver. Two reforms came out of it. A proactive engagement program to reach at-risk individuals earlier in the process, and centralized oversight of HMIS data to make records consistent across participating agencies.</p>
-              <p class="record__finding">Placement delays trace to coordination gaps between agencies rather than to capacity alone.</p>
-            </div>
+            <p>LACDA asked us to evaluate the systems that move people from the street into housing across Los Angeles County, with attention to coordination with Public Housing Authorities.</p>
+            <p>We compared outcomes against Chicago, Maricopa County, Miami-Dade County, and Denver, and proposed a proactive engagement program plus centralized HMIS oversight.</p>
+            <p class="record__finding">Placement delays trace to coordination gaps between agencies rather than to capacity alone.</p>
           </div>
         </details>
 
         <details class="record">
           <summary>
-            <span class="record__term">Spring 2025</span>
             <span class="record__client">San Gabriel Valley Council of Governments</span>
             <span class="record__subject">Cost review of the Jump Start Bus Rapid Transit projects</span>
             <span class="record__mark" aria-hidden="true"></span>
           </summary>
           <div class="record__body">
-            <div class="record__aside"><span class="label">Area</span><span>Transit</span></div>
-            <div class="prose">
-              <p>SGVCOG needed updated cost estimates for the Jump Start BRT projects, the near-term dedicated bus lanes, signal priority upgrades, and shelters identified in its February 2024 Transit Feasibility Study and slated for delivery before the 2028 Olympics.</p>
-              <p>We rebuilt the estimate from the feasibility study, benchmarked it against comparable California BRT projects, broke costs out by segment, and adjusted for inflation. The revised figures came in materially above the original. The work was carried into conversations with SGVCOG and Metro.</p>
-              <p class="record__finding">Projected costs ran 26 to 31 percent above the feasibility study's estimate, indicating a need to revisit bids and contingencies.</p>
-            </div>
+            <p>SGVCOG needed updated costs for the dedicated bus lanes, signal priority upgrades, and shelters slated for delivery before the 2028 Olympics.</p>
+            <p>We rebuilt the estimate from the feasibility study, benchmarked it against comparable California BRT projects, broke costs out by segment, and adjusted for inflation.</p>
+            <p class="record__finding">Projected costs ran 26 to 31 percent above the original estimate, indicating a need to revisit bids and contingencies.</p>
           </div>
         </details>
 
         <details class="record">
           <summary>
-            <span class="record__term">Spring 2026</span>
+            <span class="record__client">Claremont Mayor Sal Medina</span>
+            <span class="record__subject">Tiny homes as transitional housing</span>
+            <span class="record__mark" aria-hidden="true"></span>
+          </summary>
+          <div class="record__body">
+            <p>Homelessness in Claremont had roughly doubled since 2020 against limited shelter capacity. The Mayor asked whether a tiny homes village was realistic for the city.</p>
+            <p>We delivered a research report, a public-facing article, and a funding roadmap, drawing on interviews with unhoused residents, cost analysis, and programs in Tacoma and Santa Clara.</p>
+            <p class="record__finding">Comparable programs moved up to 40 percent of residents into permanent housing. Homekey and HHAP are the viable funding routes.</p>
+          </div>
+        </details>
+
+      </div>
+
+      <a class="morelink" href="#projects">See more projects &rarr;</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ FOR CLIENTS ============ -->
+<section class="page" id="clients">
+
+  <div class="hero shell">
+    <p class="hero__eyebrow">For Clients</p>
+    <h1>Research capacity, at no cost to you.</h1>
+    <p class="hero__sub">Path Consulting is a student research team at Claremont McKenna College. Each semester we take on one defined project for a city, an agency, or a nonprofit and deliver a finished product.</p>
+  </div>
+
+  <div class="banner">
+    <div class="shell">
+      <span class="label">Fall 2026</span>
+      <h2>We are scoping engagements now</h2>
+      <div class="banner__grid">
+        <dl class="banner__facts">
+          <div><dt>Cost</dt><dd>None. No contract and no procurement process.</dd></div>
+          <div><dt>Timeline</dt><dd>Scoped before the semester, delivered before it ends.</dd></div>
+          <div><dt>Your time</dt><dd>About two hours total, plus any check-ins you want.</dd></div>
+          <div><dt>Contact</dt><dd><a href="mailto:acarriero28@students.claremontmckenna.edu">acarriero28@students.claremontmckenna.edu</a></dd></div>
+        </dl>
+        <a class="banner__cta" href="mailto:acarriero28@students.claremontmckenna.edu">Start a project</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shell">
+      <div class="section__head">
+        <span class="label">About Path</span>
+        <h2 class="section__title">Who we are</h2>
+      </div>
+      <div class="split">
+        <div class="prose">
+          <p>Path is a student-run consulting group at Claremont McKenna College. We work with city governments, regional agencies, school districts, elected officials, and nonprofits, mostly in Los Angeles County and the San Gabriel Valley.</p>
+          <p>Teams of four to six students are supervised by the club's leadership throughout the semester. We do not do legal or engineering work and we are not a substitute for licensed professional services. If you are unsure whether something fits, ask.</p>
+        </div>
+        <div>
+          <span class="label" style="display:block;margin-bottom:.75rem">What we deliver</span>
+          <ul class="terms">
+            <li>Research reports and policy memos</li>
+            <li>Comparative studies across jurisdictions</li>
+            <li>Program and cost evaluations</li>
+            <li>Tracking spreadsheets and databases</li>
+            <li>Council, board, and public-facing materials</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--leaf">
+    <div class="shell">
+      <div class="section__head">
+        <span class="label">Why Path</span>
+        <h2 class="section__title">What a partnership gives you</h2>
+      </div>
+      <div class="reasons">
+        <div class="reasons__item"><h3>Work you have deferred</h3><p>Most of what we take on is the research that keeps sliding down the list. A comparison of how peer jurisdictions handled a problem. A cost estimate nobody has had time to check.</p></div>
+        <div class="reasons__item"><h3>No cost and no paperwork</h3><p>Our work is volunteer. There is no contract to negotiate, no invoice, and nothing to route through procurement.</p></div>
+        <div class="reasons__item"><h3>Minimal demand on staff</h3><p>An hour at the start to scope the question and an hour at the end to walk through the findings. Anything beyond that is up to you.</p></div>
+        <div class="reasons__item"><h3>An outside look</h3><p>Students bring no institutional history and no stake in the answer, which makes them useful on questions where internal assumptions have gone unexamined.</p></div>
+        <div class="reasons__item"><h3>A defined end date</h3><p>Engagements run the length of a semester and finish. You know what you are getting and when.</p></div>
+        <div class="reasons__item"><h3>Documented and sourced</h3><p>Deliverables are written to be handed to a council or a board, with the underlying research documented so your staff can verify it.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shell">
+      <div class="section__head">
+        <span class="label">Process</span>
+        <h2 class="section__title">How an engagement runs</h2>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Scoping</h3>
+          <p>We meet with your staff before the semester begins, define the question, and agree on the deliverable. If a project is not a good fit for a student team, we will say so.</p>
+        </div>
+        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+      </div>
+
+      <div class="feature feature--flip">
+        <div>
+          <h3>The semester</h3>
+          <p>A team is assigned and works through primary research, interviews, and analysis on an agreed check-in schedule. Your staff can be as involved as is useful.</p>
+        </div>
+        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Delivery</h3>
+          <p>You receive the finished product before the term ends, along with a walkthrough or a presentation to your council or board if you want one.</p>
+        </div>
+        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+      </div>
+
+      <a class="morelink" href="#projects">See more projects &rarr;</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ FOR STUDENTS ============ -->
+<section class="page" id="students">
+
+  <div class="hero shell">
+    <p class="hero__eyebrow">For Students</p>
+    <h1>Work on real problems for real cities.</h1>
+    <p class="hero__sub">Path Consulting is a student-run consulting group at Claremont McKenna College. We recruit across all five Claremont Colleges at the start of every semester.</p>
+  </div>
+
+  <div class="banner">
+    <div class="shell">
+      <span class="label">Recruiting</span>
+      <h2>Fall 2026 applications are open</h2>
+      <div class="banner__grid">
+        <dl class="banner__facts">
+          <div><dt>Deadline</dt><dd>[DAY, DATE] at [TIME]</dd></div>
+          <div><dt>Eligibility</dt><dd>All five Claremont Colleges. First-years and sophomores encouraged.</dd></div>
+          <div><dt>Questions</dt><dd><a href="mailto:acarriero28@students.claremontmckenna.edu">acarriero28@students.claremontmckenna.edu</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="INSTAGRAM_URL">@INSTAGRAM_HANDLE</a></dd></div>
+        </dl>
+        <a class="banner__cta" href="APPLICATION_FORM_URL">Apply here</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shell">
+      <div class="section__head">
+        <span class="label">About Path</span>
+        <h2 class="section__title">Student-run. Locally focused.</h2>
+      </div>
+      <div class="prose">
+        <p>Path partners with city governments, regional agencies, school districts, elected officials, and nonprofits. Our clients are the people who run the places we live in, and our work goes to councils and boards that act on it.</p>
+        <p>Every engagement is volunteer and free of charge. Teams of four to six students take on one client for the semester, meet weekly, and deliver a finished product before the term ends.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--leaf">
+    <div class="shell">
+      <div class="section__head">
+        <span class="label">Why join</span>
+        <h2 class="section__title">What Path offers</h2>
+      </div>
+      <div class="reasons">
+        <div class="reasons__item"><h3>Work that gets used</h3><p>Our deliverables go to city councils, school boards, and nonprofit boards. Past memos have been shared with a member of Congress and carried into conversations with Metro.</p></div>
+        <div class="reasons__item"><h3>Access to practitioners</h3><p>Members interview mayors, agency directors, nonprofit executives, and county staff as a normal part of the work. You will be on those calls, not reading notes from them.</p></div>
+        <div class="reasons__item"><h3>Research and analysis skills</h3><p>Comparative policy research, cost modeling, program evaluation, and writing for an audience that has to make a decision. These transfer directly to law, policy, finance, and consulting.</p></div>
+        <div class="reasons__item"><h3>Small teams, real ownership</h3><p>Four to six people per client means no one is carrying a token role. First-semester members write sections of the final deliverable and present to clients.</p></div>
+        <div class="reasons__item"><h3>A path into leadership</h3><p>Team leads are drawn from returning members. Leadership positions open each spring and carry responsibility for client relationships and team management.</p></div>
+        <div class="reasons__item"><h3>Across the consortium</h3><p>We recruit from all five Claremont Colleges and teams mix majors. Government, economics, and data science are common, but the work rewards people who write well from anywhere.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shell">
+      <div class="section__head">
+        <span class="label">The work</span>
+        <h2 class="section__title">What a semester looks like</h2>
+        <p class="section__intro">Every team runs the same arc, scoped with the client before the term begins and delivered before it ends.</p>
+      </div>
+      <div class="reasons">
+        <div class="reasons__item"><h3>Scoping</h3><p>The team meets the client, defines the question, and agrees on what the deliverable will be. Getting this right is most of the job.</p></div>
+        <div class="reasons__item"><h3>Research</h3><p>Primary interviews, public records, comparative jurisdictions, budget and program data. You gather what nobody has assembled yet.</p></div>
+        <div class="reasons__item"><h3>Analysis</h3><p>Cost review, program evaluation, benchmarking against peer agencies, or whatever the question actually requires.</p></div>
+        <div class="reasons__item"><h3>Delivery</h3><p>A written product the client can hand to a council or a board, and in most cases a presentation to go with it.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--leaf">
+    <div class="shell">
+      <div class="section__head">
+        <span class="label">Membership</span>
+        <h2 class="section__title">Becoming a Path member</h2>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Training</h3>
+          <p>New members are brought through the research methods, interview practice, and writing standards we hold deliverables to before their first client meeting.</p>
+        </div>
+        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+      </div>
+
+      <div class="feature feature--flip">
+        <div>
+          <h3>Leadership</h3>
+          <p>After a semester, members can apply to lead a team. Leads own the client relationship, set the work plan, and manage four to five consultants with support from the executive board.</p>
+        </div>
+        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>The community</h3>
+          <p>Path is a group of people who care about how local government actually works. Members come from across the consortium and stay connected well past graduation.</p>
+        </div>
+        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+      </div>
+
+      <a class="morelink" href="#projects">See more projects &rarr;</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="page" id="projects">
+
+  <div class="pagehead shell">
+    <span class="label">Projects</span>
+    <h1>Completed work</h1>
+    <p>Engagements with city governments, regional agencies, school districts, elected officials, and nonprofits.</p>
+  </div>
+
+  <div class="section section--tight">
+    <div class="shell">
+      <div class="docket">
+        <div class="docket__cols" aria-hidden="true">
+          <span>Client</span>
+          <span>Subject</span>
+          <span></span>
+        </div>
+
+        <details class="record">
+          <summary>
+            <span class="record__client">Los Angeles County Development Authority</span>
+            <span class="record__subject">Continuum of Care and Coordinated Access System evaluation</span>
+            <span class="record__mark" aria-hidden="true"></span>
+          </summary>
+          <div class="record__body">
+            <p>LACDA asked us to evaluate the systems that move people from the street into housing across Los Angeles County, with attention to coordination with Public Housing Authorities.</p>
+            <p>We compared outcomes against Chicago, Maricopa County, Miami-Dade County, and Denver, and proposed a proactive engagement program plus centralized HMIS oversight.</p>
+            <p class="record__finding">Placement delays trace to coordination gaps between agencies rather than to capacity alone.</p>
+          </div>
+        </details>
+
+        <details class="record">
+          <summary>
+            <span class="record__client">San Gabriel Valley Council of Governments</span>
+            <span class="record__subject">Cost review of the Jump Start Bus Rapid Transit projects</span>
+            <span class="record__mark" aria-hidden="true"></span>
+          </summary>
+          <div class="record__body">
+            <p>SGVCOG needed updated costs for the dedicated bus lanes, signal priority upgrades, and shelters slated for delivery before the 2028 Olympics.</p>
+            <p>We rebuilt the estimate from the feasibility study, benchmarked it against comparable California BRT projects, broke costs out by segment, and adjusted for inflation.</p>
+            <p class="record__finding">Projected costs ran 26 to 31 percent above the original estimate, indicating a need to revisit bids and contingencies.</p>
+          </div>
+        </details>
+
+        <details class="record">
+          <summary>
+            <span class="record__client">Claremont Mayor Sal Medina</span>
+            <span class="record__subject">Tiny homes as transitional housing</span>
+            <span class="record__mark" aria-hidden="true"></span>
+          </summary>
+          <div class="record__body">
+            <p>Homelessness in Claremont had roughly doubled since 2020 against limited shelter capacity. The Mayor asked whether a tiny homes village was realistic for the city.</p>
+            <p>We delivered a research report, a public-facing article, and a funding roadmap, drawing on interviews with unhoused residents, cost analysis, and programs in Tacoma and Santa Clara.</p>
+            <p class="record__finding">Comparable programs moved up to 40 percent of residents into permanent housing. Homekey and HHAP are the viable funding routes.</p>
+          </div>
+        </details>
+
+        <details class="record">
+          <summary>
+            <span class="record__client">Claremont Mayor Pro Tem Corey Calaycay</span>
+            <span class="record__subject">Uncontested elections after district voting reform</span>
+            <span class="record__mark" aria-hidden="true"></span>
+          </summary>
+          <div class="record__body">
+            <p>Claremont wanted to know whether the shift from at-large to district-based voting, adopted to comply with the California Voting Rights Act, was reducing the number of contested races.</p>
+            <p>We built a comparative dataset of 21 small California cities and tracked outcomes before and after each transition, then delivered options on candidate recruitment and filing.</p>
+            <p class="record__finding">Contested races fell more than 20 percent. Appointments to vacant seats more than doubled.</p>
+          </div>
+        </details>
+
+        <details class="record">
+          <summary>
+            <span class="record__client">Claremont Unified School District</span>
+            <span class="record__subject">Why a special election cost twice its estimate</span>
+            <span class="record__mark" aria-hidden="true"></span>
+          </summary>
+          <div class="record__body">
+            <p>The district's 2023 special election cost nearly double its estimate. Board President Kathryn Dunn asked why, and whether any of it could be recovered.</p>
+            <p>We examined California election law, county reimbursement mechanisms, and comparable districts. Our memo set out legislative options and was shared with Representative Judy Chu's office.</p>
+            <p class="record__finding">Cost underestimation is structural, not local. Small districts face the highest barriers to recovering funds.</p>
+          </div>
+        </details>
+
+        <details class="record">
+          <summary>
+            <span class="record__client">Touchstone Mental Health</span>
+            <span class="record__subject">Zoning and community barriers to supportive housing</span>
+            <span class="record__mark" aria-hidden="true"></span>
+          </summary>
+          <div class="record__body">
+            <p>Local opposition had stalled Touchstone's Lincoln on the Creek project in Edina, Minnesota. They asked how stigma and zoning restrictions block supportive housing statewide.</p>
+            <p>We delivered a comparative analysis of legislation similar to Minnesota's SF-1370 alongside outreach materials, a virtual facilities tour proposal, and an interview series with residents.</p>
+            <p class="record__finding">A legislative comparison and a public engagement package built for use in front of a planning commission.</p>
+          </div>
+        </details>
+
+        <details class="record">
+          <summary>
             <span class="record__client">Claremont Homeless Advocacy Program</span>
             <span class="record__subject">Structuring a relaunched street outreach program</span>
             <span class="record__mark" aria-hidden="true"></span>
           </summary>
           <div class="record__body">
-            <div class="record__aside"><span class="label">Area</span><span>Homelessness</span></div>
-            <div class="prose">
-              <p>CHAP closed in 2020. Its board asked us how to bring it back, and what the new organization should actually do.</p>
-              <p>We interviewed leadership at three California homelessness organizations: a community navigator at Tri-City Mental Health, the current and founding leaders of a Santa Cruz volunteer organization, and the President and CEO of Inland Valley Hope Partners. The resulting board memo covered referral partnerships, volunteer recruitment and dispatch, which unhoused populations to prioritize, and the operational steps toward nonprofit status.</p>
-              <p class="record__finding">Volunteer street outreach fills a gap other regional providers do not cover. Referrals should come through professional case managers.</p>
-            </div>
+            <p>CHAP closed in 2020. Its board asked how to bring it back and what the new organization should do.</p>
+            <p>We interviewed leadership at three California homelessness organizations and delivered a board memo on referral partnerships, volunteer dispatch, target populations, and nonprofit status.</p>
+            <p class="record__finding">Volunteer street outreach fills a gap other regional providers do not cover. Referrals should come through professional case managers.</p>
           </div>
         </details>
 
@@ -683,79 +851,91 @@ a{color:inherit}
 
       <div class="pending">
         <span class="label">Currently underway</span>
-        <p class="pending__note">Fall 2026 engagements are being scoped now and will be listed here once confirmed. If your organization is interested in working with us this semester, get in touch.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section" id="students">
-    <div class="shell">
-      <div class="section__head">
-        <span class="label">Students</span>
-        <h2 class="section__title">Joining Path</h2>
-      </div>
-
-      <div class="split">
-        <div class="prose">
-          <p>Path is open to undergraduates at all of the Claremont Colleges. We recruit at the start of each semester. No prior consulting or policy experience is required, and members come from a range of majors.</p>
-          <p>Members are placed on a project team of four to six students and work on one client engagement for the semester. Teams meet weekly. Expect roughly four to six hours a week, more in the weeks around a deliverable. You will do primary research, conduct interviews with practitioners and public officials, write and edit the deliverable, and in most cases present it to the client.</p>
-          <p>Team leads are drawn from returning members. Leadership positions open each spring.</p>
-        </div>
-
-        <div>
-          <a class="formlink" href="APPLICATION_FORM_URL">Apply to Path</a>
-
-          <p class="formnote">Applications for Fall 2026 close [DATE]. Email us with any questions about the process.</p>
-        </div>
+        <p>Fall 2026 engagements are being scoped now and will be listed here once confirmed.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="contact" id="contact">
-    <div class="shell">
-      <span class="label">Contact</span>
-      <h2 class="contact__title">Get in touch about a project or about joining.</h2>
+</section>
 
-      <dl class="contact__grid">
-        <div>
-          <dt class="label">Email</dt>
-          <dd><a href="mailto:acarriero28@students.claremontmckenna.edu">acarriero28@students.claremontmckenna.edu</a></dd>
-        </div>
-        <div>
-          <dt class="label">Mailing address</dt>
-          <dd>888 Columbia Avenue<br>Claremont, California 91711</dd>
-        </div>
-        <div>
-          <dt class="label">Project timeline</dt>
-          <dd>Engagements are scoped before a semester begins and delivered by its end.</dd>
-        </div>
-      </dl>
-
-      <a class="contact__cta" href="mailto:acarriero28@students.claremontmckenna.edu">Send us an email</a>
-    </div>
-  </section>
+<!-- ============ CONTACT (shown on every page) ============ -->
+<section class="contact" id="contact">
+  <div class="shell">
+    <span class="label">Contact</span>
+    <h2 class="contact__title">Get in touch about a project or about joining.</h2>
+    <dl class="contact__grid">
+      <div>
+        <dt class="label">Email</dt>
+        <dd><a href="mailto:acarriero28@students.claremontmckenna.edu">acarriero28@students.claremontmckenna.edu</a></dd>
+      </div>
+      <div>
+        <dt class="label">Mailing address</dt>
+        <dd>888 Columbia Avenue<br>Claremont, California 91711</dd>
+      </div>
+    </dl>
+    <a class="contact__cta" href="mailto:acarriero28@students.claremontmckenna.edu">Send us an email</a>
+  </div>
+</section>
 
 </main>
 
 <footer class="colophon">
   <div class="shell colophon__inner">
-    <span class="colophon__mark"><img src="pathLogo.png" alt="">Path Consulting</span>
-    <span>Claremont McKenna College</span>
+    <a class="colophon__mark" href="#home"><img src="pathLogo.png" alt="">Path Consulting</a>
+    <span class="colophon__links">
+      <a href="#clients">For Clients</a>
+      <a href="#students">For Students</a>
+      <a href="#projects">Projects</a>
+    </span>
     <span>&copy; <span id="year">2026</span></span>
   </div>
 </footer>
 
 <script>
-(function(){
+(function () {
+  var PAGES = ['home', 'clients', 'students', 'projects'];
+
+  function show(id) {
+    if (PAGES.indexOf(id) === -1) id = 'home';
+
+    PAGES.forEach(function (p) {
+      var el = document.getElementById(p);
+      if (el) el.classList.toggle('is-active', p === id);
+    });
+
+    document.querySelectorAll('.masthead__nav a').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      if (href.charAt(0) !== '#') return;
+      if (href.slice(1) === id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+
+    document.title = ({
+      home: 'Path Consulting — Claremont McKenna College',
+      clients: 'For Clients — Path Consulting',
+      students: 'For Students — Path Consulting',
+      projects: 'Projects — Path Consulting'
+    })[id];
+  }
+
+  function route() {
+    var id = (location.hash || '#home').slice(1);
+    if (id === 'contact') return;          // let the contact anchor scroll normally
+    show(id);
+    window.scrollTo(0, 0);
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
   var records = document.querySelectorAll('.record');
-  records.forEach(function(rec){
-    rec.addEventListener('toggle', function(){
+  records.forEach(function (rec) {
+    rec.addEventListener('toggle', function () {
       if (!rec.open) return;
-      records.forEach(function(other){ if (other !== rec) other.open = false; });
+      records.forEach(function (other) { if (other !== rec) other.open = false; });
     });
   });
 })();
