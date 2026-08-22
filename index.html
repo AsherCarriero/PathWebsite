@@ -202,27 +202,6 @@ a{color:inherit}
 .split{display:grid;grid-template-columns:1fr;gap:2rem}
 @media (min-width:56em){.split{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:3.5rem}}
 
-/* ---------- reason rows (no cards) ---------- */
-
-.reasons{border-top:1px solid var(--rule)}
-
-.reasons__item{
-  border-bottom:1px solid var(--rule-soft);
-  padding:1.375rem 0;
-  display:grid;grid-template-columns:1fr;gap:.375rem;
-}
-
-@media (min-width:52em){
-  .reasons__item{grid-template-columns:minmax(0,16rem) minmax(0,1fr);gap:2.5rem;align-items:baseline}
-}
-
-.reasons__item h3{
-  margin:0;font-family:var(--serif);font-size:1.1875rem;
-  font-weight:500;letter-spacing:-.01em;line-height:1.3;
-}
-
-.reasons__item p{margin:0;color:var(--ink-soft);max-width:58ch}
-
 /* ---------- feature blocks with images ---------- */
 
 .feature{
@@ -411,6 +390,43 @@ a{color:inherit}
   .record > summary:hover{padding-left:0}
 }
 
+/* ---------- collapsible rows ---------- */
+
+.drops{border-top:3px solid var(--seal)}
+
+.drop{border-bottom:1px solid var(--rule-soft)}
+.drop[open]{background:var(--paper)}
+.section--leaf .drop[open]{background:var(--leaf)}
+
+.drop > summary{
+  list-style:none;cursor:pointer;
+  padding:1rem 0;
+  display:grid;grid-template-columns:1fr 1.75rem;gap:1.5rem;
+  align-items:baseline;
+  transition:padding-left .25s ease;
+}
+
+.drop > summary::-webkit-details-marker{display:none}
+.drop > summary:hover{padding-left:.75rem}
+.drop > summary:hover .drop__title,
+.drop[open] .drop__title{color:var(--seal)}
+
+.drop__title{
+  font-family:var(--serif);font-size:1.125rem;line-height:1.3;
+  font-weight:500;letter-spacing:-.01em;transition:color .2s;
+}
+
+.drop__mark{
+  justify-self:end;font-family:var(--mono);font-size:1.125rem;
+  line-height:1;color:var(--seal);
+}
+
+.drop__mark::before{content:"+"}
+.drop[open] .drop__mark::before{content:"\2013"}
+
+.drop__body{padding:0 0 1.25rem;max-width:60ch}
+.drop__body p{margin:0;color:var(--ink-soft)}
+
 /* ---------- single-file router ---------- */
 .page{display:none}
 .page.is-active{display:block}
@@ -560,7 +576,6 @@ a{color:inherit}
       <div class="split">
         <div class="prose">
           <p>Path is a student-run consulting group at Claremont McKenna College. We work with city governments, regional agencies, school districts, elected officials, and nonprofits, mostly in Los Angeles County and the San Gabriel Valley.</p>
-          <p>Teams of four to six students are supervised by the club's leadership throughout the semester. We do not do legal or engineering work and we are not a substitute for licensed professional services. If you are unsure whether something fits, ask.</p>
         </div>
         <div>
           <span class="label" style="display:block;margin-bottom:.75rem">What we deliver</span>
@@ -580,15 +595,39 @@ a{color:inherit}
     <div class="shell">
       <div class="section__head">
         <span class="label">Why Path</span>
-        <h2 class="section__title">What a partnership gives you</h2>
+        <h2 class="section__title">What a partnership involves</h2>
       </div>
-      <div class="reasons">
-        <div class="reasons__item"><h3>Work you have deferred</h3><p>Most of what we take on is the research that keeps sliding down the list. A comparison of how peer jurisdictions handled a problem. A cost estimate nobody has had time to check.</p></div>
-        <div class="reasons__item"><h3>No cost and no paperwork</h3><p>Our work is volunteer. There is no contract to negotiate, no invoice, and nothing to route through procurement.</p></div>
-        <div class="reasons__item"><h3>Minimal demand on staff</h3><p>An hour at the start to scope the question and an hour at the end to walk through the findings. Anything beyond that is up to you.</p></div>
-        <div class="reasons__item"><h3>An outside look</h3><p>Students bring no institutional history and no stake in the answer, which makes them useful on questions where internal assumptions have gone unexamined.</p></div>
-        <div class="reasons__item"><h3>A defined end date</h3><p>Engagements run the length of a semester and finish. You know what you are getting and when.</p></div>
-        <div class="reasons__item"><h3>Documented and sourced</h3><p>Deliverables are written to be handed to a council or a board, with the underlying research documented so your staff can verify it.</p></div>
+
+      <div class="drops">
+        <details class="drop">
+          <summary><span class="drop__title">What kind of work you can hand us</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Research that keeps sliding down the list. A comparison of how peer jurisdictions handled a problem, a cost estimate nobody has checked, background ahead of a council decision, or an evaluation of a program against what it was meant to do.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">What it costs</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Nothing. Our work is volunteer. There is no contract to negotiate, no invoice, and nothing to route through procurement.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">How much of your staff's time</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>An hour at the start to scope the question and an hour at the end to walk through the findings. Anything beyond that is up to you.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">How long it takes</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>One semester. We scope before the term begins and deliver before it ends.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">What you get at the end</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>A written product your staff can hand to a council or a board, with the underlying research documented so it can be verified. A presentation if you want one.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">What we will not take on</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Legal or engineering work, anything requiring a licensed professional, and questions where a student team would be out of its depth. We will tell you if that is the case.</p></div>
+        </details>
       </div>
     </div>
   </div>
@@ -603,7 +642,7 @@ a{color:inherit}
       <div class="feature">
         <div>
           <h3>Scoping</h3>
-          <p>We meet with your staff before the semester begins, define the question, and agree on the deliverable. If a project is not a good fit for a student team, we will say so.</p>
+          <p>We meet before the semester begins, define the question, and agree on the deliverable.</p>
         </div>
         <figure class="feature__media"><div class="figure-slot">Image</div></figure>
       </div>
@@ -611,7 +650,7 @@ a{color:inherit}
       <div class="feature feature--flip">
         <div>
           <h3>The semester</h3>
-          <p>A team is assigned and works through primary research, interviews, and analysis on an agreed check-in schedule. Your staff can be as involved as is useful.</p>
+          <p>A team works through research, interviews, and analysis on an agreed check-in schedule.</p>
         </div>
         <figure class="feature__media"><div class="figure-slot">Image</div></figure>
       </div>
@@ -619,7 +658,7 @@ a{color:inherit}
       <div class="feature">
         <div>
           <h3>Delivery</h3>
-          <p>You receive the finished product before the term ends, along with a walkthrough or a presentation to your council or board if you want one.</p>
+          <p>You receive the finished product before the term ends, with a presentation if you want one.</p>
         </div>
         <figure class="feature__media"><div class="figure-slot">Image</div></figure>
       </div>
@@ -648,7 +687,7 @@ a{color:inherit}
           <div><dt>Deadline</dt><dd>[DAY, DATE] at [TIME]</dd></div>
           <div><dt>Eligibility</dt><dd>All five Claremont Colleges. First-years and sophomores encouraged.</dd></div>
           <div><dt>Questions</dt><dd><a href="mailto:acarriero28@students.claremontmckenna.edu">acarriero28@students.claremontmckenna.edu</a></dd></div>
-          <div><dt>Instagram</dt><dd><a href="INSTAGRAM_URL">@INSTAGRAM_HANDLE</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/pathcmc/">@pathcmc</a></dd></div>
         </dl>
         <a class="banner__cta" href="APPLICATION_FORM_URL">Apply here</a>
       </div>
@@ -662,8 +701,7 @@ a{color:inherit}
         <h2 class="section__title">Student-run. Locally focused.</h2>
       </div>
       <div class="prose">
-        <p>Path partners with city governments, regional agencies, school districts, elected officials, and nonprofits. Our clients are the people who run the places we live in, and our work goes to councils and boards that act on it.</p>
-        <p>Every engagement is volunteer and free of charge. Teams of four to six students take on one client for the semester, meet weekly, and deliver a finished product before the term ends.</p>
+        <p>Path partners with city governments, regional agencies, school districts, elected officials, and nonprofits. Teams of four to six students take on one client for the semester, meet weekly, and deliver a finished product before the term ends.</p>
       </div>
     </div>
   </div>
@@ -672,15 +710,39 @@ a{color:inherit}
     <div class="shell">
       <div class="section__head">
         <span class="label">Why join</span>
-        <h2 class="section__title">What Path offers</h2>
+        <h2 class="section__title">What joining involves</h2>
       </div>
-      <div class="reasons">
-        <div class="reasons__item"><h3>Work that gets used</h3><p>Our deliverables go to city councils, school boards, and nonprofit boards. Past memos have been shared with a member of Congress and carried into conversations with Metro.</p></div>
-        <div class="reasons__item"><h3>Access to practitioners</h3><p>Members interview mayors, agency directors, nonprofit executives, and county staff as a normal part of the work. You will be on those calls, not reading notes from them.</p></div>
-        <div class="reasons__item"><h3>Research and analysis skills</h3><p>Comparative policy research, cost modeling, program evaluation, and writing for an audience that has to make a decision. These transfer directly to law, policy, finance, and consulting.</p></div>
-        <div class="reasons__item"><h3>Small teams, real ownership</h3><p>Four to six people per client means no one is carrying a token role. First-semester members write sections of the final deliverable and present to clients.</p></div>
-        <div class="reasons__item"><h3>A path into leadership</h3><p>Team leads are drawn from returning members. Leadership positions open each spring and carry responsibility for client relationships and team management.</p></div>
-        <div class="reasons__item"><h3>Across the consortium</h3><p>We recruit from all five Claremont Colleges and teams mix majors. Government, economics, and data science are common, but the work rewards people who write well from anywhere.</p></div>
+
+      <div class="drops">
+        <details class="drop">
+          <summary><span class="drop__title">Who we work with</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>City governments, regional agencies, school districts, elected officials, and nonprofits. Deliverables go to councils and boards. Past memos have reached a member of Congress and been carried into conversations with Metro.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">Who you talk to</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Members interview mayors, agency directors, nonprofit executives, and county staff. You will be on those calls.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">What you learn</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Comparative policy research, cost modeling, program evaluation, and writing for someone who has to make a decision.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">How teams are structured</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Four to six students per client. First-semester members write sections of the final deliverable and present to clients.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">Moving into leadership</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Team leads come from returning members. Leadership positions open each spring and carry the client relationship and the work plan.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">Who can apply</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Undergraduates at any of the five Claremont Colleges, from any major. No prior experience required.</p></div>
+        </details>
       </div>
     </div>
   </div>
@@ -692,11 +754,26 @@ a{color:inherit}
         <h2 class="section__title">What a semester looks like</h2>
         <p class="section__intro">Every team runs the same arc, scoped with the client before the term begins and delivered before it ends.</p>
       </div>
-      <div class="reasons">
-        <div class="reasons__item"><h3>Scoping</h3><p>The team meets the client, defines the question, and agrees on what the deliverable will be. Getting this right is most of the job.</p></div>
-        <div class="reasons__item"><h3>Research</h3><p>Primary interviews, public records, comparative jurisdictions, budget and program data. You gather what nobody has assembled yet.</p></div>
-        <div class="reasons__item"><h3>Analysis</h3><p>Cost review, program evaluation, benchmarking against peer agencies, or whatever the question actually requires.</p></div>
-        <div class="reasons__item"><h3>Delivery</h3><p>A written product the client can hand to a council or a board, and in most cases a presentation to go with it.</p></div>
+      <div class="drops">
+        <details class="drop">
+          <summary><span class="drop__title">Scoping</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>The team meets the client, defines the question, and agrees on the deliverable.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">Research</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Interviews, public records, comparative jurisdictions, budget and program data.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">Analysis</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>Cost review, program evaluation, or benchmarking against peer agencies.</p></div>
+        </details>
+
+        <details class="drop">
+          <summary><span class="drop__title">Delivery</span><span class="drop__mark" aria-hidden="true"></span></summary>
+          <div class="drop__body"><p>A written product for a council or board, usually with a presentation.</p></div>
+        </details>
       </div>
     </div>
   </div>
@@ -711,7 +788,7 @@ a{color:inherit}
       <div class="feature">
         <div>
           <h3>Training</h3>
-          <p>New members are brought through the research methods, interview practice, and writing standards we hold deliverables to before their first client meeting.</p>
+          <p>Research methods, interview practice, and our writing standards, before your first client meeting.</p>
         </div>
         <figure class="feature__media"><div class="figure-slot">Image</div></figure>
       </div>
@@ -719,7 +796,7 @@ a{color:inherit}
       <div class="feature feature--flip">
         <div>
           <h3>Leadership</h3>
-          <p>After a semester, members can apply to lead a team. Leads own the client relationship, set the work plan, and manage four to five consultants with support from the executive board.</p>
+          <p>After a semester you can apply to lead a team, owning the client relationship and the work plan.</p>
         </div>
         <figure class="feature__media"><div class="figure-slot">Image</div></figure>
       </div>
@@ -727,7 +804,7 @@ a{color:inherit}
       <div class="feature">
         <div>
           <h3>The community</h3>
-          <p>Path is a group of people who care about how local government actually works. Members come from across the consortium and stay connected well past graduation.</p>
+          <p>Members come from across the consortium and stay connected well past graduation.</p>
         </div>
         <figure class="feature__media"><div class="figure-slot">Image</div></figure>
       </div>
@@ -931,11 +1008,15 @@ a{color:inherit}
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  var records = document.querySelectorAll('.record');
-  records.forEach(function (rec) {
-    rec.addEventListener('toggle', function () {
-      if (!rec.open) return;
-      records.forEach(function (other) { if (other !== rec) other.open = false; });
+  ['.docket', '.drops'].forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (group) {
+      var items = group.querySelectorAll('details');
+      items.forEach(function (item) {
+        item.addEventListener('toggle', function () {
+          if (!item.open) return;
+          items.forEach(function (other) { if (other !== item) other.open = false; });
+        });
+      });
     });
   });
 })();
