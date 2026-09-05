@@ -238,20 +238,14 @@ a{color:inherit}
 .split{display:grid;grid-template-columns:1fr;gap:2rem}
 @media (min-width:56em){.split{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:3.5rem}}
 
-/* ---------- feature blocks with images ---------- */
+/* ---------- feature blocks ---------- */
 
 .feature{
-  display:grid;grid-template-columns:1fr;gap:1.5rem;
   padding:clamp(1.75rem,3.5vw,2.5rem) 0;
   border-bottom:1px solid var(--rule-soft);
 }
 
 .feature:first-of-type{border-top:1px solid var(--rule)}
-
-@media (min-width:56em){
-  .feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3.5rem;align-items:center}
-  .feature--flip .feature__media{order:-1}
-}
 
 .feature h3{
   margin:0 0 .75rem;font-family:var(--serif);
@@ -259,19 +253,6 @@ a{color:inherit}
 }
 
 .feature p{margin:0;color:var(--ink-soft);max-width:52ch}
-
-.feature__media{margin:0}
-.feature__media img{width:100%;height:auto;display:block}
-
-.figure-slot{
-  aspect-ratio:4/3;background:var(--leaf);
-  border:1px solid var(--rule);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:.6875rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
-}
-
-.section--leaf .figure-slot{background:var(--paper)}
 
 /* ---------- lists ---------- */
 
@@ -521,7 +502,7 @@ a{color:inherit}
         </div>
         <div>
           <h3>For students</h3>
-          <p>We recruit across all five Claremont Colleges at the start of every semester. Members work on one client engagement, interview practitioners and public officials, and present to the client.</p>
+          <p>We recruit at Claremont McKenna College at the start of every semester. Members work on one client engagement, interview practitioners and public officials, and present to the client.</p>
           <a class="action" href="#students">Join Path</a>
         </div>
       </div>
@@ -687,27 +668,18 @@ a{color:inherit}
       </div>
 
       <div class="feature">
-        <div>
-          <h3>Scoping</h3>
-          <p>We meet before the semester begins, define the question, and agree on the deliverable.</p>
-        </div>
-        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
-      </div>
-
-      <div class="feature feature--flip">
-        <div>
-          <h3>The semester</h3>
-          <p>A team works through research, interviews, and analysis on an agreed check-in schedule.</p>
-        </div>
-        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+        <h3>Scoping</h3>
+        <p>We meet before the semester begins, define the question, and agree on the deliverable.</p>
       </div>
 
       <div class="feature">
-        <div>
-          <h3>Delivery</h3>
-          <p>You receive the finished product before the term ends, with a presentation if you want one.</p>
-        </div>
-        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+        <h3>The semester</h3>
+        <p>A team works through research, interviews, and analysis on an agreed check-in schedule.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Delivery</h3>
+        <p>You receive the finished product before the term ends, with a presentation if you want one.</p>
       </div>
 
       <a class="morelink" href="#projects">See more projects &rarr;</a>
@@ -722,7 +694,7 @@ a{color:inherit}
   <div class="hero shell">
     <p class="hero__eyebrow">For Students</p>
     <h1>Consulting and government work with impact.</h1>
-    <p class="hero__sub">Path Consulting is a student-run consulting group at Claremont McKenna College. We recruit across all five Claremont Colleges at the start of every semester.</p>
+    <p class="hero__sub">Path Consulting is a student-run consulting group at Claremont McKenna College. We recruit new members at the start of every semester.</p>
   </div>
 
   <div class="banner">
@@ -731,8 +703,8 @@ a{color:inherit}
       <h2>Fall 2026 applications are open</h2>
       <div class="banner__grid">
         <dl class="banner__facts">
-          <div><dt>Deadline</dt><dd>[DAY, DATE] at [TIME]</dd></div>
-          <div><dt>Eligibility</dt><dd>All five Claremont Colleges. First-years and sophomores encouraged.</dd></div>
+          <div><dt>Deadline</dt><dd>September 18 at 11:59 PM</dd></div>
+          <div><dt>Eligibility</dt><dd>Claremont McKenna College. First-years and sophomores encouraged.</dd></div>
           <div><dt>Questions</dt><dd><a href="mailto:acarriero28@students.claremontmckenna.edu">acarriero28@students.claremontmckenna.edu</a></dd></div>
           <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/pathcmc/">@pathcmc</a></dd></div>
         </dl>
@@ -745,7 +717,7 @@ a{color:inherit}
     <div class="shell">
       <div class="section__head">
         <span class="label">About Path</span>
-        <h2 class="section__title">Student-run. Locally focused.</h2>
+        <h2 class="section__title">What Path is</h2>
       </div>
       <div class="prose">
         <p>Path partners with city governments, regional agencies, school districts, elected officials, and nonprofits. Teams of four to six students take on one client for the semester, meet weekly, and deliver a finished product before the term ends.</p>
@@ -788,7 +760,7 @@ a{color:inherit}
 
         <details class="drop">
           <summary><span class="drop__title">Who can apply</span><span class="drop__mark" aria-hidden="true"></span></summary>
-          <div class="drop__body"><p>Undergraduates at any of the five Claremont Colleges, from any major. No prior experience required.</p></div>
+          <div class="drop__body"><p>Undergraduates at Claremont McKenna College, from any major. No prior experience required.</p></div>
         </details>
       </div>
     </div>
@@ -833,27 +805,18 @@ a{color:inherit}
       </div>
 
       <div class="feature">
-        <div>
-          <h3>Training</h3>
-          <p>Research methods, interview practice, and our writing standards, before your first client meeting.</p>
-        </div>
-        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
-      </div>
-
-      <div class="feature feature--flip">
-        <div>
-          <h3>Leadership</h3>
-          <p>After a semester you can apply to lead a team, owning the client relationship and the work plan.</p>
-        </div>
-        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+        <h3>Training</h3>
+        <p>Research methods, interview practice, and our writing standards, before your first client meeting.</p>
       </div>
 
       <div class="feature">
-        <div>
-          <h3>The community</h3>
-          <p>Members meet through events and retreats throughout the year, and stay connected well past graduation.</p>
-        </div>
-        <figure class="feature__media"><div class="figure-slot">Image</div></figure>
+        <h3>Leadership</h3>
+        <p>After a semester you can apply to lead a team, owning the client relationship and the work plan.</p>
+      </div>
+
+      <div class="feature">
+        <h3>The community</h3>
+        <p>Members meet through events and retreats throughout the year, and stay connected well past graduation.</p>
       </div>
 
       <a class="morelink" href="#projects">See more projects &rarr;</a>
@@ -977,6 +940,27 @@ a{color:inherit}
         <span class="label">Currently underway</span>
         <p>Fall 2026 engagements are being scoped now and will be listed here once confirmed.</p>
       </div>
+    </div>
+  </div>
+
+  <div class="section section--leaf">
+    <div class="shell">
+      <div class="section__head">
+        <span class="label">Other projects</span>
+        <h2 class="section__title">Other clients we have worked with</h2>
+      </div>
+      <ul class="terms">
+        <li>San Francisco Chamber of Commerce</li>
+        <li>Call Marin Home</li>
+        <li>Los Angeles Chamber of Commerce</li>
+        <li>The Healthy Earth Organization</li>
+        <li>Rails to Trails</li>
+        <li>Claremont Tiny Homes</li>
+        <li>E-Tainable</li>
+        <li>Los Angeles Regional Consortium</li>
+        <li>Animal Resource Center of the Inland Empire</li>
+        <li>SGV Greenway Network Project</li>
+      </ul>
     </div>
   </div>
 
